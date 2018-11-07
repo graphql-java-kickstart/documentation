@@ -1,0 +1,19 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+  # install latest release version
+  # - wget $(wget -qO- https://api.github.com/repos/gohugoio/hugo/releases/latest | sed -r -n '/browser_download_url/{/Linux-64bit.deb/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p}}')
+  - wget -qO- https://api.github.com/repos/gohugoio/hugo/releases/latest | sed -r -n '/browser_download_url/{/Linux-64bit.deb/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p}}' | xargs wget
+  - sudo dpkg -i hugo*.deb
+  - pip install Pygments
+  - rm -rf public 2> /dev/null
+
+script:
+  - cd graphql-java-servlet
+  - hugo
+
+after_success:
+  - find public -type f -exec curl --ftp-create-dirs -T {} sftp://${SFTP_USER}:${SFTP_PASSWORD}@graphql-java-kickstart.com.transurl.nl/www/docs/graphql-java-servlet/{} \;

@@ -1,4 +1,4 @@
-baseurl = "https://www.graphql-java-kickstart.com/"
+baseurl = "https://www.graphql-java-kickstart.com/docs/graphql-java-servlet"
 languageCode = "en-us"
 title = "GraphQL Java Servlet"
 theme = "hugo-material-docs"
