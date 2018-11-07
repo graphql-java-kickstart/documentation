@@ -19,7 +19,7 @@ googleAnalytics = ""
 
 	version = "5.0.6"
 	logo = "images/logo-graphql-kickstart-2000px.png"
-	favicon = ""
+	favicon = "images/favicon.ico"
 
 	permalink = "#"
 

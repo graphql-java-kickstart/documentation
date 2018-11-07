@@ -9,17 +9,17 @@ googleAnalytics = ""
 
 [params]
 	# General information
-	author = "Michiel Oliemans"
-	description = "Documentation for GraphQL Java Kickstart projects"
-	copyright = "Released under the MIT license"
+	author = "GraphQL Java Kickstart"
+	description = "Documentation for GraphQL Java Servlet"
+	copyright = "Released under the Apache 2.0 license"
 
 	# Repository
 	provider = "GitHub"
 	repo_url = "https://github.com/graphql-java-kickstart/graphql-java-servlet"
 
-	version = "6.2.0"
+	version = "6.2.1"
 	logo = "images/logo-graphql-kickstart-2000px.png"
-	favicon = ""
+	favicon = "images/favicon.ico"
 
 	permalink = "#"
 
@@ -46,7 +46,7 @@ googleAnalytics = ""
 
 
 [[menu.main]]
-	name   = "GraphQL Java Kickstart"
+	name   = "GraphQL Java Servlet"
 	url    = "/"
 	weight = 0
 
@@ -55,20 +55,6 @@ googleAnalytics = ""
 	url    = "getting-started/"
 	weight = 10
 
-[[menu.main]]
-	name   = "Adding content"
-	url    = "adding-content/"
-	weight = 20
-
-[[menu.main]]
-	name   = "Roadmap"
-	url    = "roadmap/"
-	weight = 30
-
-[[menu.main]]
-	name   = "License"
-	url    = "license/"
-	weight = 40
 
 
 [blackfriday]
