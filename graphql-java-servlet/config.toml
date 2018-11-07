@@ -17,7 +17,7 @@ googleAnalytics = ""
 	provider = "GitHub"
 	repo_url = "https://github.com/graphql-java-kickstart/graphql-java-servlet"
 
-	version = "6.2.1"
+	version = "6.2.0"
 	logo = "images/logo-graphql-kickstart-2000px.png"
 	favicon = "images/favicon.ico"
 
@@ -28,7 +28,7 @@ googleAnalytics = ""
 	custom_js  = []
 
 	# Syntax highlighting theme
-	highlight_css  = ""
+	highlight_css  = "stylesheets/atom-one-light.css"
 
 	[params.palette]
     	primary = "pink"

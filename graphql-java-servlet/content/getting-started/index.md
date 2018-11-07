@@ -16,7 +16,7 @@ Make sure `mavenCentral` is among your repositories. The example build script be
 a webserver to show a working example. You need to add the `jcenter` repository as well to be able to pull in all
 dependencies required by `gretty`.
 
-```groovy
+```gradle
 plugins {
     id 'war'
     id 'idea'
@@ -48,7 +48,7 @@ Add the `graphql-java-servlet` dependency to your `depencies` section:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-servlet</artifactId>
-  <version>6.2.1</version>
+  <version>6.2.0</version>
 </dependency>
 ```
 
