@@ -2,8 +2,9 @@
 date: 2018-11-07T00:11:02+01:00
 title: Getting started
 weight: 10
-type: index
 ---
+
+A working version of this example can be found at https://github.com/graphql-java-kickstart/samples/tree/master/servlet-hello-world.
 
 ## Build with Gradle
 
@@ -67,9 +68,7 @@ public class HelloServlet extends SimpleGraphQLHttpServlet {
   }
 
   private static GraphQLInvocationInputFactory invocationInputFactory() {
-    return GraphQLInvocationInputFactory
-        .newBuilder(new DefaultGraphQLSchemaProvider(createSchema()))
-        .build();
+    return GraphQLInvocationInputFactory.newBuilder(createSchema()).build();
   }
 
   private static GraphQLSchema createSchema() {
@@ -87,14 +86,7 @@ public class HelloServlet extends SimpleGraphQLHttpServlet {
   }
 
   private static GraphQLQueryInvoker queryInvoker() {
-    return GraphQLQueryInvoker.newBuilder()
-        .withExecutionStrategyProvider(executionStrategyProvider())
-        .build();
-  }
-
-  private static ExecutionStrategyProvider executionStrategyProvider() {
-    return new DefaultExecutionStrategyProvider(new AsyncExecutionStrategy(), null,
-        new SubscriptionExecutionStrategy());
+    return GraphQLQueryInvoker.newBuilder().build();
   }
 
   private static GraphQLObjectMapper objectMapper() {
@@ -123,7 +115,7 @@ You can now send a GraphQL query to your local servlet, for example using [Insom
 In this case the URL to post the GraphQL query to is http://localhost:8080/graphql-java-servlet-hello-world/graphql.
 
 The following GraphQL query is what the example implementation supports:
-```graphql
+```gradle
 query {
     test
 }

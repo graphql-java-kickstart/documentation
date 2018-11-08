@@ -1,4 +1,4 @@
-baseurl = "https://www.graphql-java-kickstart.com/docs/graphql-java-servlet"
+baseurl = "https://www.graphql-java-kickstart.com/docs/graphql-java-servlet/"
 languageCode = "en-us"
 title = "GraphQL Java Servlet"
 theme = "hugo-material-docs"
@@ -28,7 +28,7 @@ googleAnalytics = ""
 	custom_js  = []
 
 	# Syntax highlighting theme
-	highlight_css  = "stylesheets/atom-one-light.css"
+	highlight_css  = "stylesheets/androidstudio.css"
 
 	[params.palette]
     	primary = "pink"
@@ -46,9 +46,9 @@ googleAnalytics = ""
 
 
 [[menu.main]]
-	name   = "GraphQL Java Servlet"
-	url    = "/"
-	weight = 0
+	name   = "About"
+	url    = "about/"
+	weight = 1
 
 [[menu.main]]
 	name   = "Getting started"

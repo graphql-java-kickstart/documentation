@@ -65,6 +65,13 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   font-weight: bold;
 }
 
-.article code {
+/*.article code, .article pre {*/
+  /*background: #282b2e !important;*/
+  /*color: #a9b7c6 !important;*/
+/*}*/
+
+.article pre code, .article pre {
   background: #282b2e !important;
+  color: #a9b7c6 !important;
 }
+
