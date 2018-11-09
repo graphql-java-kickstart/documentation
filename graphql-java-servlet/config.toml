@@ -55,10 +55,11 @@ googleAnalytics = ""
 	url    = "getting-started/"
 	weight = 10
 
-
-
 [blackfriday]
 	smartypants	= true
 	fractions = true
 	smartDashes = true
 	plainIDAnchors = true
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]

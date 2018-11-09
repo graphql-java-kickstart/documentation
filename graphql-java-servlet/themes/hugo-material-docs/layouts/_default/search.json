@@ -1,0 +1,7 @@
+{{- $.Scratch.Add "search" slice -}}
+{{- range .Site.Pages -}}
+{{- $.Scratch.Add "search" (dict "title" .Title "location" (substr (.Permalink | relURL) 1) "text" .Plain) -}}
+{{- end -}}
+{
+"docs": {{- $.Scratch.Get "search" | jsonify -}}
+}
