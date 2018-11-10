@@ -1,74 +1,80 @@
-{{ if .IsPage }}
-{{ if .NextPage | or .PrevPage }}
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  {{ if .NextPage }}
-      <a href="{{ .NextPage.Permalink }}" title="{{ .NextPage.Title }}">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              {{ .NextPage.Title }}
-            </div>
-          </div>
-        </div>
-      </a>
+<!-- Application footer -->
+<footer class="md-footer">
+  {{ if .IsPage }}
+    {{ if .NextPage | or .PrevPage }}
+      <div class="md-footer-nav">
+          <nav class="md-footer-nav__inner md-grid">
+
+          <!-- Link to previous page -->
+          {{ if .NextPage }}
+            <a href="{{ .NextPage.Permalink }}"
+                title="{{ .NextPage.Title }}"
+                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+                rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back
+                      md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch
+                    md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  {{ .NextPage.Title }}
+                </span>
+              </div>
+            </a>
+          {{ end }}
+
+          <!-- Link to next page -->
+          {{ if .PrevPage }}
+            <a href="{{ .PrevPage.Permalink }}"
+                title="{{ .PrevPage.Title }}"
+                class="md-flex md-footer-nav__link md-footer-nav__link--next"
+                rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch
+                    md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  <span style="position: absolute; right: 0; padding: 0 2rem;">
+                  {{ .PrevPage.Title }}
+                  </span>
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward
+                      md-footer-nav__button"></i>
+              </div>
+            </a>
+          {{ end }}
+        </nav>
+      </div>
+    {{ end }}
   {{ end }}
-  </div>
 
-  <div class="next">
-  {{ if .PrevPage }}
-      <a href="{{ .PrevPage.Permalink }}" title="{{ .PrevPage.Title }}">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              {{ .PrevPage.Title }}
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
-  {{ end }}
-  </div>
-</nav>
-{{ end }}
-{{ end }}
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
 
-{{ if .IsHome }}
-{{ if gt (len .Site.Pages) 2 }}
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  </div>
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        {{ with .Site.Params.copyright }}
+          <div class="md-footer-copyright__highlight">
+            {{ . }}
+          </div>
+        {{ end }}
+        powered by
+        <a href="https://gohugo.io">Hugo</a>
+        and
+        <a href="https://github.com/oliemansm/hugo-material-docs">
+          Material Docs for Hugo</a>
+      </div>
 
-  {{ $title := (index (.Site.Pages.ByWeight) 1).Title  }}
-  {{ $permalink := (index (.Site.Pages.ByWeight) 1).Permalink }}
-  <div class="next">
-      <a href="{{ $permalink }}" title="{{ $title }}">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              {{ $title }}
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
+      <!-- TODO: Social links -->
+      {{ partial "social" . }}
+    </div>
   </div>
-</nav>
-{{ end }}
-{{ end }}
+</footer>

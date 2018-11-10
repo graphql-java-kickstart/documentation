@@ -1,0 +1,46 @@
+{{ $class := "md-nav__item" }}
+{{ $currentMenuEntry := .Scratch.Get "currentMenuEntry" }}
+{{ $isCurrent := eq .Permalink ($currentMenuEntry.URL | absURL | printf "%s") }}
+{{ if $isCurrent }}
+	{{ $class = "md-nav__item md-nav__item--active" }}
+{{ end }}
+
+<!-- Main navigation item with nested items -->
+{{ if $currentMenuEntry.HasChildren }}
+<li class="{{ $class }} md-nav__item--nested">
+	{{ if $isCurrent }}
+		<input class="md-toggle md-nav__toggle" data-md-toggle="{{ $currentMenuEntry.URL }}"
+					type="checkbox" id="{{ $currentMenuEntry.URL }}" checked />
+	{{ else }}
+	<input class="md-toggle md-nav__toggle" data-md-toggle="{{ $currentMenuEntry.URL }}"
+				type="checkbox" id="{{ $currentMenuEntry.URL }}" />
+	{{ end }}
+
+	<!-- Expand active pages -->
+  <label class="md-nav__link" for="{{ path }}">
+    {{ $currentMenuEntry.Name }}
+  </label>
+</li>
+
+{{ else if $isCurrent }}
+<li class="{{ $class }}">
+	<!-- Active checkbox expands items contained within nested section -->
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
+        type="checkboxd" id="__toc" />
+
+		<a title="{{ $currentMenuEntry.Name }}" href="{{ $currentMenuEntry.URL | relURL }}"
+	        class="md-nav__link md-nav__link--active">
+			{{ $currentMenuEntry.Pre }}
+			{{ $currentMenuEntry.Name }}
+		</a>
+</li>
+
+{{ else }}
+<li class="{{ $class }}">
+  <a href="{{ $currentMenuEntry.URL | relURL }}" title="{{ $currentMenuEntry.Name }}"
+      class="md-nav__link">
+			{{ $currentMenuEntry.Pre }}
+			{{ $currentMenuEntry.Name }}
+  </a>
+</li>
+{{ end }}

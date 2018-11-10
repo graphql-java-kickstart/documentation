@@ -20,30 +20,5 @@
   IN THE SOFTWARE.
 -->
 
-<!-- Repository containing source -->
-  <!--
-    Check whether the repository is hosted on one of the supported code hosting
-    platforms (GitHub, GitLab or Bitbucket) to show icon.
-  -->
-  {{ $repo_type := "" }}
-  {{ if (in (trim .repo_url " " | lower) "github") }}
-    {{ $repo_type = "github" }}
-  {{ else if (in (trim .repo_url " " | lower) "gitlab") }}
-    {{ $repo_type = "gitlab" }}
-  {{ else if (in (trim .repo_url " " | lower) "bitbucket") }}
-    {{ $repo_type = "bitbucket" }}
-  {{ end }}
-  {{ $svg := printf "/images/icons/%s.svg#__%s" $repo_type $repo_type }}
-  <a href="{{ .repo_url }}" title="Go to repository"
-      class="md-source" data-md-source='{{ $repo_type }}'>
-    {{ with $repo_type }}
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href='#__{{ $repo_type }}' width="24" height="24"></use>
-        </svg>
-      </div>
-    {{ end }}
-    <div class="md-source__repository">
-      {{ .repo_name }}
-    </div>
-  </a>
+<!-- Table of contents -->
+<nav id="scrollspy" class="md-nav md-nav--secondary"></nav>

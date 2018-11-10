@@ -28,7 +28,7 @@ googleAnalytics = ""
 	custom_js  = []
 
 	# Syntax highlighting theme
-	highlight_css  = "stylesheets/androidstudio.css"
+	highlight_css  = ""
 
 	search_enabled = true
 
@@ -47,7 +47,7 @@ googleAnalytics = ""
 
 [social]
 	twitter = ""
-	github  = "graphql-java-kickstart"
+	github  = "https://github.com/graphql-java-kickstart"
 	email   = ""
 
 

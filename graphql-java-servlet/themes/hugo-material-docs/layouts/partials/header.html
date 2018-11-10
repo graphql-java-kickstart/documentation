@@ -20,9 +20,16 @@
     <!-- Header title -->
     <div class="md-flex__cell md-flex__cell--stretch">
       <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-        <span class="md-header-nav__topic">
-          {{ .Title }}
-        </span>
+        {{ if eq .Site.Title .Title }}
+          {{ .Site.Title }}
+        {{ else }}
+          <span class="md-header-nav__topic">
+            {{ .Site.Title }}
+          </span>
+          <span class="md-header-nav__topic">
+            {{ .Title }}
+          </span>
+        {{ end }}
       </div>
     </div>
 

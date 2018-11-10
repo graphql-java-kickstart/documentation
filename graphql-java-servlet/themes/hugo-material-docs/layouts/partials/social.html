@@ -20,30 +20,20 @@
   IN THE SOFTWARE.
 -->
 
-<!-- Repository containing source -->
-  <!--
-    Check whether the repository is hosted on one of the supported code hosting
-    platforms (GitHub, GitLab or Bitbucket) to show icon.
-  -->
-  {{ $repo_type := "" }}
-  {{ if (in (trim .repo_url " " | lower) "github") }}
-    {{ $repo_type = "github" }}
-  {{ else if (in (trim .repo_url " " | lower) "gitlab") }}
-    {{ $repo_type = "gitlab" }}
-  {{ else if (in (trim .repo_url " " | lower) "bitbucket") }}
-    {{ $repo_type = "bitbucket" }}
+<!-- Social links in footer -->
+<div class="md-footer-social">
+  <link rel="stylesheet" type="text/css"
+      href='{{ "fonts/font-awesome.css" | absURL }}' />
+  {{ with .Site.Social.globe }}
+    <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-globe"></a>
   {{ end }}
-  {{ $svg := printf "/images/icons/%s.svg#__%s" $repo_type $repo_type }}
-  <a href="{{ .repo_url }}" title="Go to repository"
-      class="md-source" data-md-source='{{ $repo_type }}'>
-    {{ with $repo_type }}
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href='#__{{ $repo_type }}' width="24" height="24"></use>
-        </svg>
-      </div>
-    {{ end }}
-    <div class="md-source__repository">
-      {{ .repo_name }}
-    </div>
-  </a>
+  {{ with .Site.Social.github }}
+    <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-github-alt"></a>
+  {{ end }}
+  {{ with .Site.Social.twitter }}
+    <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-twitter"></a>
+  {{ end }}
+  {{ with .Site.Social.linkedin }}
+    <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-linkedin"></a>
+  {{ end }}
+</div>
