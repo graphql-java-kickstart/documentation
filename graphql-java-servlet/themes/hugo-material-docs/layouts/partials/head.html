@@ -22,7 +22,7 @@
 
     <meta property="og:url" content="{{ .Permalink }}">
     {{ with .Site.Title }}<meta property="og:title" content="{{ . }}">{{ end }}
-    {{ with .Site.Params.logo }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+    {{ with .Site.Params.logo.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
     {{ with .Site.Title }}<meta name="apple-mobile-web-app-title" content="{{ . }}">{{ end }}
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -48,8 +48,11 @@
     </style>
 
     <link rel="stylesheet" href="{{ "stylesheets/application.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "stylesheets/application.v2.css" | absURL }}">
     <link rel="stylesheet" href="{{ "stylesheets/temporary.css" | absURL }}">
     <link rel="stylesheet" href="{{ "stylesheets/palettes.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "stylesheets/application-palette.v2.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "fonts/material-icons.css" | absURL }}">
     <link rel="stylesheet" href="{{ with .Site.Params.highlight_css }}{{ . | absURL }}{{ else }}{{ "stylesheets/highlight/highlight.css" | absURL }}{{ end }}">
 
     {{/* set default values if no custom ones are defined */}}
@@ -77,4 +80,6 @@
     {{ end }}
 
   </head>
-  <body class="{{ with .Site.Params.palette.primary }}palette-primary-{{ . }}{{end }} {{ with .Site.Params.palette.accent }}palette-accent-{{ .  }}{{ end }}">
+  <body data-md-color-primary="{{ with .Site.Params.palette.primary }}{{ . }}{{end }}"
+        data-md-color-accent="{{ with .Site.Params.palette.accent }}{{ .  }}{{ end }}"
+        class="{{ with .Site.Params.palette.primary }}palette-primary-{{ . }}{{end }} {{ with .Site.Params.palette.accent }}palette-accent-{{ .  }}{{ end }}">

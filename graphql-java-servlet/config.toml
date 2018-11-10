@@ -15,10 +15,10 @@ googleAnalytics = ""
 
 	# Repository
 	provider = "GitHub"
+	repo_name = "graphql-java-kickstart/graphql-java-servlet"
 	repo_url = "https://github.com/graphql-java-kickstart/graphql-java-servlet"
 
 	version = "6.2.0"
-	logo = "images/logo-graphql-kickstart-2000px.png"
 	favicon = "images/favicon.ico"
 
 	permalink = "#"
@@ -30,13 +30,19 @@ googleAnalytics = ""
 	# Syntax highlighting theme
 	highlight_css  = "stylesheets/androidstudio.css"
 
+	search_enabled = true
+
+	[params.logo]
+		icon = ""
+		image = "images/logo-graphql-kickstart-2000px.png"
+
 	[params.palette]
     	primary = "pink"
     	accent  = "teal"
 
-    [params.font]
-    	text = "Ubuntu"
-    	code = "Ubuntu Mono"
+  [params.font]
+  	text = "Roboto"
+  	code = "Roboto Mono"
 
 
 [social]
