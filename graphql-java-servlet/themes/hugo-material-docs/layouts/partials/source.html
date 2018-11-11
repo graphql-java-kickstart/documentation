@@ -34,7 +34,7 @@
     {{ $repo_type = "bitbucket" }}
   {{ end }}
   {{ $svg := printf "/images/icons/%s.svg#__%s" $repo_type $repo_type }}
-  <a href="{{ .repo_url }}" title="Go to repository"
+  <a href="{{ .repo_url }}" title="Go to repository" target="_blank"
       class="md-source" data-md-source='{{ $repo_type }}'>
     {{ with $repo_type }}
       <div class="md-source__icon">

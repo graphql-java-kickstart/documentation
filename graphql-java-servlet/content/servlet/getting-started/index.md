@@ -5,7 +5,7 @@ weight: 10
 menu:
   main:
     parent: Servlet
-    url: getting-started
+    url: /servlet/getting-started/
 ---
 
 A working version of this example can be found at https://github.com/graphql-java-kickstart/samples/tree/master/servlet-hello-world.

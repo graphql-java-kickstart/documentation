@@ -39,6 +39,16 @@ googleAnalytics = ""
 		url = "https://github.com/graphql-java-kickstart/graphql-java-servlet"
 		menu = "Servlet"
 
+	[[params.repositories]]
+		name = "graphql-java-kickstart/graphql-java-tools"
+		url = "https://github.com/graphql-java-kickstart/graphql-java-tools"
+		menu = "Tools"
+
+	[[params.repositories]]
+		name = "graphql-java-kickstart/graphql-spring-boot"
+		url = "https://github.com/graphql-java-kickstart/graphql-spring-boot"
+		menu = "Spring Boot"
+
 	[params.logo]
 		icon = ""
 		image = "images/logo-graphql-kickstart-2000px.png"
@@ -62,6 +72,16 @@ googleAnalytics = ""
 	name   = "Servlet"
 	url    = "/servlet/"
 	weight = 10
+
+[[menu.main]]
+	name   = "Tools"
+	url    = "/tools/"
+	weight = 20
+
+[[menu.main]]
+	name   = "Spring Boot"
+	url    = "/spring-boot/"
+	weight = 30
 
 [blackfriday]
 	smartypants	= true
