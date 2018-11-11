@@ -69,3 +69,11 @@ Author: Pedro Oliveira <kanytu@gmail . com>
   background: #282b2e !important;
   color: #a9b7c6 !important;
 }
+
+button.md-clipboard::before {
+  color: rgba(255, 255, 255, 0.07);
+}
+
+pre:hover button.md-clipboard::before {
+  color: rgba(255, 255, 255, 0.54);
+}

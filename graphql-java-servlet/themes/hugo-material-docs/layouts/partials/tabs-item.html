@@ -1,0 +1,10 @@
+{{ $class := "md-tabs__link" }}
+{{ $currentMenuEntry := $.Scratch.Get "currentMenuEntry" }}
+{{ if .HasMenuCurrent "main" $currentMenuEntry }}
+  {{ $class = "md-tabs__link md-tabs__link--active" }}
+{{ end }}
+<li class="md-tabs__item">
+  <a href="{{ $currentMenuEntry.URL }}" title="{{ $currentMenuEntry.Name }}" class="{{ $class }}">
+    {{ $currentMenuEntry.Name }}
+  </a>
+</li>

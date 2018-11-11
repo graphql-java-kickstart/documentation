@@ -2,14 +2,18 @@
 date: 2018-11-07T00:11:02+01:00
 title: Getting started
 weight: 10
+menu:
+  main:
+    parent: Servlet
+    url: getting-started
 ---
 
 A working version of this example can be found at https://github.com/graphql-java-kickstart/samples/tree/master/servlet-hello-world.
 
 ## Build with Gradle
 
-First you set up a basic build script. You can use any build system you like, but the code you need to work with 
-Gradle and Maven is included here. 
+First you set up a basic build script. You can use any build system you like, but the code you need to work with
+Gradle and Maven is included here.
 
 ### Create a Gradle build file
 
@@ -36,7 +40,7 @@ dependencies {
 
 ## Build with Maven
 
-First you set up a basic build script. You can use any build system you like, but the code you need to work with 
+First you set up a basic build script. You can use any build system you like, but the code you need to work with
 Gradle and Maven is included here. We're assuming you already have a basic understanding of the build system of your
 choosing and how to use it. So instead of providing fully functioning build script we only provide the sections
 needed to add `graphql-java-servlet` to your application.
@@ -57,7 +61,7 @@ Add the `graphql-java-servlet` dependency to your `depencies` section:
 
 Create a servlet class extending `SimpleGraphQLHttpServlet`. This is the basic "Hello world" example. It creates
 the GraphQL Query `{ hello }` that can be executed and which will respond with "world". It creates the GraphQL
-schema programmatically as shown in the [getting started example](https://www.graphql-java.com/documentation/v11/getting-started/) from `graphql-java`. 
+schema programmatically as shown in the [getting started example](https://www.graphql-java.com/documentation/v11/getting-started/) from `graphql-java`.
 
 ```java
 @WebServlet(name = "HelloServlet", urlPatterns = {"graphql"}, loadOnStartup = 1)

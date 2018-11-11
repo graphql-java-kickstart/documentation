@@ -1,4 +1,4 @@
-baseurl = "https://www.graphql-java-kickstart.com/docs/graphql-java-servlet/"
+baseurl = "https://www.graphql-java-kickstart.com/"
 languageCode = "en-us"
 title = "GraphQL Java Servlet"
 theme = "hugo-material-docs"
@@ -30,7 +30,14 @@ googleAnalytics = ""
 	# Syntax highlighting theme
 	highlight_css  = ""
 
-	search_enabled = true
+	[params.feature]
+		search = true
+		tabs = true
+
+	[[params.repositories]]
+		name = "graphql-java-kickstart/graphql-java-servlet"
+		url = "https://github.com/graphql-java-kickstart/graphql-java-servlet"
+		menu = "Servlet"
 
 	[params.logo]
 		icon = ""
@@ -52,13 +59,8 @@ googleAnalytics = ""
 
 
 [[menu.main]]
-	name   = "About"
-	url    = "about/"
-	weight = 1
-
-[[menu.main]]
-	name   = "Getting started"
-	url    = "getting-started/"
+	name   = "Servlet"
+	url    = "/"
 	weight = 10
 
 [blackfriday]

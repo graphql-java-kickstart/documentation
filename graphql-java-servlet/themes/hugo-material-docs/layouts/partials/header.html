@@ -35,7 +35,7 @@
 
     <!-- Button to open search dialogue  -->
     <div class="md-flex__cell md-flex__cell--shrink">
-      {{ with .Site.Params.search_enabled }}
+      {{ with .Site.Params.feature.search }}
           <label class="md-icon md-icon--search md-header-nav__button"
               for="__search"></label>
           {{ partial "search" . }}
@@ -43,12 +43,25 @@
     </div>
 
     <!-- Repository containing source -->
-    {{ with .Site.Params.repo_url }}
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          {{ partial "source" (dict "repo_url" . "repo_name" $.Site.Params.repo_name) }}
+    {{ if isset .Params.menu "main" }}
+      {{ $currentPage := . }}
+      {{ range .Site.Params.repositories }}
+        {{ if eq $currentPage.Params.menu.main.parent .menu }}
+          <div class="md-flex__cell md-flex__cell--shrink">
+            <div class="md-header-nav__source">
+              {{ partial "source" (dict "repo_url" .url "repo_name" .name) }}
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ with .Site.Params.repo_url }}
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            {{ partial "source" (dict "repo_url" . "repo_name" $.Site.Params.repo_name) }}
+          </div>
         </div>
-      </div>
+      {{ end }}
     {{ end }}
 
   </div>
