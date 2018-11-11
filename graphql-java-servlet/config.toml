@@ -1,6 +1,6 @@
 baseurl = "https://www.graphql-java-kickstart.com/"
 languageCode = "en-us"
-title = "GraphQL Java Servlet"
+title = "GraphQL Java Kickstart"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
 canonifyurls = true
@@ -15,8 +15,8 @@ googleAnalytics = ""
 
 	# Repository
 	provider = "GitHub"
-	repo_name = "graphql-java-kickstart/graphql-java-servlet"
-	repo_url = "https://github.com/graphql-java-kickstart/graphql-java-servlet"
+	repo_name = "graphql-java-kickstart"
+	repo_url = "https://github.com/graphql-java-kickstart"
 
 	version = "6.2.0"
 	favicon = "images/favicon.ico"
@@ -60,7 +60,7 @@ googleAnalytics = ""
 
 [[menu.main]]
 	name   = "Servlet"
-	url    = "/"
+	url    = "/servlet/"
 	weight = 10
 
 [blackfriday]
