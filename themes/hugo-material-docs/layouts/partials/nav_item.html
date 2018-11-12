@@ -17,9 +17,25 @@
 	{{ end }}
 
 	<!-- Expand active pages -->
-  <label class="md-nav__link" for="{{ path }}">
+  <label class="md-nav__link" for="{{ $currentMenuEntry.URL }}">
     {{ $currentMenuEntry.Name }}
   </label>
+	<nav class="md-nav" data-md-component="collapsible"
+			data-md-level="1">
+		<label class="md-nav__title" for="{{ $currentMenuEntry.URL }}">
+			{{ $currentMenuEntry.Name }}
+		</label>
+		<ul class="md-nav__list" data-md-scrollfix>
+
+			<!-- Render nested item list -->
+			{{ $currentPage := . }}
+			{{ range $currentMenuEntry.Children }}
+				{{ $.Scratch.Set "currentMenuEntry" . }}
+				{{ partial "nav_item" $currentPage }}
+			{{ end }}
+
+		</ul>
+	</nav>
 </li>
 
 {{ else if $isCurrent }}
