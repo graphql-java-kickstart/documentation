@@ -54,7 +54,8 @@ type Organization {
 ```
 
 ## Using the Type Definition Factory
-In version 5.4 of `graphql-java-tools` the **Type Definition Factory** has been
+In version 5.4 of `graphql-java-tools` the
+[Type Definition Factory]({{< relref "/tools/type-definition-factory/index.md" >}}) has been
 introduced. This has been added with this particular use case in mind, but can
 be used for any type of definition that you'd want to add dynamically instead
 of defining it statically in the SDL.
