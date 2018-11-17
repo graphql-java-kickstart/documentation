@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-servlet:6.2.0'
+    compile 'com.graphql-java-kickstart:graphql-java-servlet:7.0.0'
 }
 ```
 
@@ -53,7 +53,7 @@ Add the `graphql-java-servlet` dependency to your `depencies` section:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-servlet</artifactId>
-  <version>6.2.0</version>
+  <version>7.0.0</version>
 </dependency>
 ```
 
@@ -65,17 +65,14 @@ schema programmatically as shown in the [getting started example](https://www.gr
 
 ```java
 @WebServlet(name = "HelloServlet", urlPatterns = {"graphql"}, loadOnStartup = 1)
-public class HelloServlet extends SimpleGraphQLHttpServlet {
+public class HelloServlet extends GraphQLHttpServlet {
 
-  public HelloServlet() {
-    super(invocationInputFactory(), queryInvoker(), objectMapper(), null, false);
+  @Override
+  protected GraphQLConfiguration getConfiguration() {
+    return GraphQLConfiguration.with(createSchema()).build();
   }
 
-  private static GraphQLInvocationInputFactory invocationInputFactory() {
-    return GraphQLInvocationInputFactory.newBuilder(createSchema()).build();
-  }
-
-  private static GraphQLSchema createSchema() {
+  private GraphQLSchema createSchema() {
     String schema = "type Query{hello: String}";
 
     SchemaParser schemaParser = new SchemaParser();
@@ -89,13 +86,6 @@ public class HelloServlet extends SimpleGraphQLHttpServlet {
     return schemaGenerator.makeExecutableSchema(typeDefinitionRegistry, runtimeWiring);
   }
 
-  private static GraphQLQueryInvoker queryInvoker() {
-    return GraphQLQueryInvoker.newBuilder().build();
-  }
-
-  private static GraphQLObjectMapper objectMapper() {
-    return GraphQLObjectMapper.newBuilder().build();
-  }
 }
 ```
 
