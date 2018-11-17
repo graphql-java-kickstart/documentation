@@ -32,7 +32,7 @@ repositories {
 Add the `graphql-java-tools` dependency:
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-tools:5.3.5'
+    compile 'com.graphql-java-kickstart:graphql-java-tools:5.4.0'
 }
 ```
 
@@ -43,7 +43,7 @@ Add the `graphql-java-tools` dependency:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-tools</artifactId>
-  <version>5.3.5</version>
+  <version>5.4.0</version>
 </dependency>
 ```
 
