@@ -53,7 +53,7 @@ type Organization {
 }
 ```
 
-# Using the Type Definition Factory
+## Using the Type Definition Factory
 In version 5.4 of `graphql-java-tools` the **Type Definition Factory** has been
 introduced. This has been added with this particular use case in mind, but can
 be used for any type of definition that you'd want to add dynamically instead
@@ -84,3 +84,15 @@ The connection type will be created if absent using the type name specified
 for the field, e.g. `UserConnection` and `OrganizationConnection` in the example
 above. The edge type will get the same name appended with `Edge`, e.g.
 `UserConnectionEdge` and `OrganizationConnectionEdge` for this example.
+
+## Creating the resolver
+
+In the resolvers the Relay connection provided by `graphql-java` can be used, for example:
+```java
+class QueryResolver implements GraphQLQueryResolver {
+
+  public Connection<User> users(int first, String after, DataFetchingEnvironment env) {
+    return new SimpleListConnection<>(Collections.singletonList(new User(1L, "Luke"))).get(env);
+  }
+}
+```
