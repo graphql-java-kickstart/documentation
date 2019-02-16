@@ -47,7 +47,7 @@ needed to add `graphql-java-servlet` to your application.
 
 ### Update your Maven pom file
 
-Add the `graphql-java-servlet` dependency to your `depencies` section:
+Add the `graphql-java-servlet` dependency to your `dependencies` section:
 
 ```xml
 <dependency>
