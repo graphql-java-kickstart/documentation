@@ -64,7 +64,7 @@ the GraphQL Query `{ hello }` that can be executed and which will respond with "
 schema programmatically as shown in the [getting started example](https://www.graphql-java.com/documentation/v11/getting-started/) from `graphql-java`.
 
 ```java
-@WebServlet(name = "HelloServlet", urlPatterns = {"graphql"}, loadOnStartup = 1)
+@WebServlet(name = "HelloServlet", urlPatterns = {"graphql/*"}, loadOnStartup = 1)
 public class HelloServlet extends GraphQLHttpServlet {
 
   @Override
