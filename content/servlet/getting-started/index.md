@@ -47,7 +47,7 @@ needed to add `graphql-java-servlet` to your application.
 
 ### Update your Maven pom file
 
-Add the `graphql-java-servlet` dependency to your `depencies` section:
+Add the `graphql-java-servlet` dependency to your `dependencies` section:
 
 ```xml
 <dependency>
@@ -111,7 +111,7 @@ In this case the URL to post the GraphQL query to is http://localhost:8080/graph
 The following GraphQL query is what the example implementation supports:
 ```gradle
 query {
-    test
+    hello
 }
 ```
 Our Hello Servlet will respond with:
