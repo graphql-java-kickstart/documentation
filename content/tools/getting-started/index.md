@@ -43,7 +43,7 @@ Add the `graphql-java-tools` dependency:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-tools</artifactId>
-  <version>5.4.0</version>
+  <version>6.0.2</version>
 </dependency>
 ```
 

@@ -69,13 +69,13 @@ googleAnalytics = ""
 
 
 [[menu.main]]
-	name   = "Servlet"
-	url    = "/servlet/"
+	name   = "Tools"
+	url    = "/tools/"
 	weight = 10
 
 [[menu.main]]
-	name   = "Tools"
-	url    = "/tools/"
+	name   = "Servlet"
+	url    = "/servlet/"
 	weight = 20
 
 [[menu.main]]
