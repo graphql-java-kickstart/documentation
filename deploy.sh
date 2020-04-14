@@ -12,7 +12,9 @@ then
 else
   echo "No github account configured"
 fi
+echo "Add files to git"
 git add .
+echo "Commit files to git"
 git commit -m "Rebuild site"
 echo "Push changes to Github Pages"
 git push --force origin HEAD:master
