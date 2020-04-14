@@ -1,0 +1,3 @@
+[submodule "pages"]
+	path = public
+	url = https://github.com/graphql-java-kickstart/graphql-java-kickstart.github.io.git
