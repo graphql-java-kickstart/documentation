@@ -1,7 +1,7 @@
 #!/usr/bin/expect -f
 set timeout -1
 spawn scp -r public $env(SFTP_USER)@graphql-java-kickstart.com.transurl.nl:/www
-set pass = $env(SFTP_PASSWORD)
+set pass $env(SFTP_PASSWORD)
 expect {
         password: {send "$pass\r" ; exp_continue}
         eof exit
