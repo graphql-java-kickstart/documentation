@@ -9,7 +9,10 @@ then
     git config credential.helper store
     git config user.email "graphql-java-kickstart-bot@users.noreply.github.com"
     git config user.name "graphql-java-kickstart-bot"
+else
+  echo "No github account configured"
 fi
 git add .
 git commit -m "Rebuild site"
+echo "Push changes to Github Pages"
 git push --force origin HEAD:master
