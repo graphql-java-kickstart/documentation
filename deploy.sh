@@ -9,9 +9,9 @@ then
     git config credential.helper store
     git config user.email "graphql-java-kickstart-bot@users.noreply.github.com"
     git config user.name "graphql-java-kickstart-bot"
-else
-  echo "No github account configured"
 fi
+git checkout -f "${TRAVIS_BRANCH}"
+ls -l
 echo "Add files to git"
 git add .
 echo "Commit files to git"
