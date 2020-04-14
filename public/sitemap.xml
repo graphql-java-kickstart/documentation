@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/servlet/</loc>
+    <lastmod>2016-03-08T21:07:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tools/</loc>
+    <lastmod>2016-03-08T21:07:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/spring-boot/</loc>
+    <lastmod>2016-03-08T21:07:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/</loc>
+    <lastmod>2016-03-08T21:07:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/servlet/getting-started/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/spring-boot/getting-started/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tools/getting-started/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tools/schema-definition/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tools/schema-parser-options/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tools/relay/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/spring-boot/type-definition-factory/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tools/type-definition-factory/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/spring-boot/directives/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tools/directives/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/connection/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/definition/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/directives/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/dynamic/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/edge/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/factory/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/pageinfo/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/relay/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/tags/type/</loc>
+    <lastmod>2018-11-07T00:11:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.graphql-java-kickstart.com/categories/</loc>
+  </url>
+  
+</urlset>
