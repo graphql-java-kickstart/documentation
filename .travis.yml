@@ -10,14 +10,28 @@ install:
   - sudo dpkg -i hugo*.deb
   - pip install Pygments
   - rm -rf public 2> /dev/null
-  - sudo apt-get install -y expect
+#  - sudo apt-get install -y expect
+  - sudo apt-get install build-essential debhelper libssh-dev
+  - sudo apt-get source curl
+  - sudo apt-get build-dep curl
+  - cd curl-*
+  - wget https://bugs.launchpad.net/ubuntu/+source/curl/+bug/311029/+attachment/5234644/+files/ubuntu_libssl.patch
+  - sudo patch debian/rules < /ubuntu_libssl.patch
+  - sudo dpkg-buildpackage -uc -us -b
+  - cd ..
+  - sudo dpkg -i curl_*.deb
+  - sudo dpkg -i libcurl3-*.deb
+  - sudo dpkg -i libcurl3-gnutls_*.deb
+  - sudo apt-mark hold curl
+  - sudo apt-mark hold libcurl3
+  - sudo apt-mark hold libcurl3-gnutls
 
 script:
 #  - cd graphql-java-servlet
   - hugo
 
 after_success:
-  - ssh-keyscan -H graphql-java-kickstart.com.transurl.nl >> ~/.ssh/known_hosts
-  - expect upload.exp
+#  - ssh-keyscan -H graphql-java-kickstart.com.transurl.nl >> ~/.ssh/known_hosts
+#  - expect upload.exp
 #  - sshpass -p "${SFTP_PASSWORD}" scp -v -r public ${SFTP_USER}@graphql-java-kickstart.com.transurl.nl:/www
-#  - find public -type f -exec curl --ftp-create-dirs -T {} sftp://${SFTP_USER}:${SFTP_PASSWORD}@graphql-java-kickstart.com.transurl.nl/www/{} \;
+  - find public -type f -exec curl --ftp-create-dirs -T {} sftp://${SFTP_USER}:${SFTP_PASSWORD}@graphql-java-kickstart.com.transurl.nl/www/{} \;
