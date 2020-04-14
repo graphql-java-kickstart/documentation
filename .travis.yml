@@ -15,8 +15,9 @@ install:
   - sudo apt-get source curl
   - sudo apt-get build-dep curl
   - cd curl-*
-  - wget https://bugs.launchpad.net/ubuntu/+source/curl/+bug/311029/+attachment/5234644/+files/ubuntu_libssl.patch
-  - sudo patch debian/rules < /ubuntu_libssl.patch
+  - sed -i 's/CONFIGURE_ARGS += --without-libssh2/CONFIGURE_ARGS += --with-libssh2/g' debian/rules
+#  - wget https://bugs.launchpad.net/ubuntu/+source/curl/+bug/311029/+attachment/5234644/+files/ubuntu_libssl.patch
+#  - sudo patch debian/rules < /ubuntu_libssl.patch
   - sudo dpkg-buildpackage -uc -us -b
   - cd ..
   - sudo dpkg -i curl_*.deb
