@@ -17,6 +17,7 @@ script:
   - hugo
 
 after_success:
+  - ssh-keyscan -H graphql-java-kickstart.com.transurl.nl >> ~/.ssh/known_hosts
   - expect upload.exp
 #  - sshpass -p "${SFTP_PASSWORD}" scp -v -r public ${SFTP_USER}@graphql-java-kickstart.com.transurl.nl:/www
 #  - find public -type f -exec curl --ftp-create-dirs -T {} sftp://${SFTP_USER}:${SFTP_PASSWORD}@graphql-java-kickstart.com.transurl.nl/www/{} \;
