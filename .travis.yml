@@ -10,12 +10,13 @@ install:
   - sudo dpkg -i hugo*.deb
   - pip install Pygments
   - rm -rf public 2> /dev/null
-  - sudo apt-get install -y sshpass
+  - sudo apt-get install -y expect
 
 script:
 #  - cd graphql-java-servlet
   - hugo
 
 after_success:
-  - sshpass -p "${SFTP_PASSWORD}" scp -v -r public ${SFTP_USER}@graphql-java-kickstart.com.transurl.nl:/www
+  - upload.exp
+#  - sshpass -p "${SFTP_PASSWORD}" scp -v -r public ${SFTP_USER}@graphql-java-kickstart.com.transurl.nl:/www
 #  - find public -type f -exec curl --ftp-create-dirs -T {} sftp://${SFTP_USER}:${SFTP_PASSWORD}@graphql-java-kickstart.com.transurl.nl/www/{} \;
