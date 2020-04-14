@@ -11,6 +11,7 @@ install:
 
 script:
   - hugo
+  - cp -f CNAME public/.
 
 deploy:
     - provider: script
