@@ -49,7 +49,7 @@ Add the `graphql-java-tools` dependency:
 
 ## Using the latest development build
 
-Snapshot versions of the current `master` branch are availble on JFrog. Check the next snapshot version on
+Snapshot versions of the current `master` branch are available on JFrog. Check the next snapshot version on
 [Github](https://github.com/graphql-java-kickstart/graphql-java-tools/blob/master/gradle.properties)
 
 ### Build with Gradle

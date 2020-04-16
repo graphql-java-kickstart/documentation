@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html lang="en" class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Defining a schema - GraphQL Java Kickstart</title>
+    <meta name="generator" content="Hugo 0.69.0" />
+
+    
+    <meta name="description" content="Documentation for GraphQL Java Servlet">
+    
+    <link rel="canonical" href="https://www.graphql-java-kickstart.com/tools/schema-definition/">
+    
+    <meta name="author" content="GraphQL Java Kickstart">
+    
+
+    
+    <meta name="lang:clipboard.copy" content="Copy to clipboard" />
+    <meta name="lang:clipboard.copied" content="Copied to clipboard" />
+    <meta name="lang:search.language" content="en" />
+    <meta name="lang:search.pipeline.stopwords" content="true" />
+    <meta name="lang:search.pipeline.trimmer" content="true" />
+    <meta name="lang:search.result.none" content="No matching documents" />
+    <meta name="lang:search.result.one" content="1 matching document" />
+    <meta name="lang:search.result.other" content="# matching documents" />
+    <meta name="lang:search.tokenizer" content="[\s\-]+" />
+
+    <meta property="og:url" content="https://www.graphql-java-kickstart.com/tools/schema-definition/">
+    <meta property="og:title" content="GraphQL Java Kickstart">
+    <meta property="og:image" content="https://www.graphql-java-kickstart.com/images/logo-graphql-kickstart-2000px.png">
+    <meta name="apple-mobile-web-app-title" content="GraphQL Java Kickstart">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.graphql-java-kickstart.com/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.graphql-java-kickstart.com/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.graphql-java-kickstart.com/fonts/icon.eot');
+        src: url('https://www.graphql-java-kickstart.com/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.graphql-java-kickstart.com/fonts/icon.woff')
+               format('woff'),
+             url('https://www.graphql-java-kickstart.com/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.graphql-java-kickstart.com/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.graphql-java-kickstart.com/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.graphql-java-kickstart.com/fonts/material-icons.css">
+    <link rel="stylesheet" href="https://www.graphql-java-kickstart.com/stylesheets/highlight/androidstudio.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://www.graphql-java-kickstart.com/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body data-md-color-primary="pink"
+        data-md-color-accent="teal"
+        class="palette-primary-pink palette-accent-teal">
+
+
+
+	
+	
+
+
+<svg class="md-svg">
+  <defs>
+		<svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+
+		<svg xmlns="http://www.w3.org/2000/svg" width="352" height="448"
+    viewBox="0 0 352 448" id="__bitbucket">
+  <path fill="currentColor" d="M203.75 214.75q2 15.75-12.625 25.25t-27.875
+        1.5q-9.75-4.25-13.375-14.5t-0.125-20.5 13-14.5q9-4.5 18.125-3t16 8.875
+        6.875 16.875zM231.5 209.5q-3.5-26.75-28.25-41t-49.25-3.25q-15.75
+        7-25.125 22.125t-8.625 32.375q1 22.75 19.375 38.75t41.375 14q22.75-2
+        38-21t12.5-42zM291.25
+        74q-5-6.75-14-11.125t-14.5-5.5-17.75-3.125q-72.75-11.75-141.5 0.5-10.75
+        1.75-16.5 3t-13.75 5.5-12.5 10.75q7.5 7 19 11.375t18.375 5.5 21.875
+        2.875q57 7.25 112 0.25 15.75-2 22.375-3t18.125-5.375 18.75-11.625zM305.5
+        332.75q-2 6.5-3.875 19.125t-3.5 21-7.125 17.5-14.5 14.125q-21.5
+        12-47.375 17.875t-50.5 5.5-50.375-4.625q-11.5-2-20.375-4.5t-19.125-6.75-18.25-10.875-13-15.375q-6.25-24-14.25-73l1.5-4
+        4.5-2.25q55.75 37 126.625 37t126.875-37q5.25 1.5 6 5.75t-1.25 11.25-2
+        9.25zM350.75 92.5q-6.5 41.75-27.75 163.75-1.25 7.5-6.75 14t-10.875
+        10-13.625 7.75q-63 31.5-152.5
+        22-62-6.75-98.5-34.75-3.75-3-6.375-6.625t-4.25-8.75-2.25-8.5-1.5-9.875-1.375-8.75q-2.25-12.5-6.625-37.5t-7-40.375-5.875-36.875-5.5-39.5q0.75-6.5
+        4.375-12.125t7.875-9.375 11.25-7.5 11.5-5.625 12-4.625q31.25-11.5
+        78.25-16 94.75-9.25 169 12.5 38.75 11.5 53.75 30.5 4 5 4.125
+        12.75t-1.375 13.5z" />
+</svg>
+
+		<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500"
+    viewBox="0 0 500 500" id="__gitlab">
+  <g transform="translate(156.197863, 1.160267)">
+  	<path fill="currentColor"
+        d="M93.667,473.347L93.667,473.347l90.684-279.097H2.983L93.667,
+          473.347L93.667,473.347z" />
+  </g>
+  <g transform="translate(28.531199, 1.160800)" opacity="0.7">
+  	<path fill="currentColor"
+        d="M221.333,473.345L130.649,194.25H3.557L221.333,473.345L221.333,
+          473.345z" />
+  </g>
+  <g transform="translate(0.088533, 0.255867)" opacity="0.5">
+  	<path fill="currentColor"
+        d="M32,195.155L32,195.155L4.441,279.97c-2.513,7.735,0.24,16.21,6.821,
+          20.99l238.514,173.29 L32,195.155L32,195.155z" />
+  </g>
+  <g transform="translate(29.421866, 280.255593)">
+  	<path fill="currentColor"
+        d="M2.667-84.844h127.092L75.14-252.942c-2.811-8.649-15.047-8.649-17.856,
+          0L2.667-84.844 L2.667-84.844z" />
+  </g>
+  <g transform="translate(247.197860, 1.160800)" opacity="0.7">
+  	<path fill="currentColor"
+        d="M2.667,473.345L93.351,194.25h127.092L2.667,473.345L2.667,
+          473.345z" />
+  </g>
+  <g transform="translate(246.307061, 0.255867)" opacity="0.5">
+  	<path fill="currentColor"
+        d="M221.334,195.155L221.334,195.155l27.559,84.815c2.514,7.735-0.24,
+          16.21-6.821,20.99 L3.557,474.25L221.334,195.155L221.334,195.155z" />
+  </g>
+  <g transform="translate(336.973725, 280.255593)">
+  	<path fill="currentColor"
+        d="M130.667-84.844H3.575l54.618-168.098c2.811-8.649,15.047-8.649,
+          17.856,0L130.667-84.844 L130.667-84.844z" />
+  </g>
+</svg>
+
+  </defs>
+</svg>
+
+
+<input class="md-toggle" data-md-toggle="drawer"
+    type="checkbox" id="__drawer" autocomplete="off" />
+<input class="md-toggle" data-md-toggle="search"
+    type="checkbox" id="__search" autocomplete="off" />
+
+
+<label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+
+
+
+
+<header class="md-header" data-md-component="header">
+	
+<nav class="md-header-nav md-grid">
+  <div class="md-flex">
+
+    
+    <div class="md-flex__cell md-flex__cell--shrink">
+      <a href="https://www.graphql-java-kickstart.com/"
+          title="GraphQL Java Kickstart"
+          class="md-header-nav__button md-logo">
+            <i class="md-icon"></i>
+      </a>
+    </div>
+
+    
+    <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--menu md-header-nav__button"
+          for="__drawer"></label>
+    </div>
+
+    
+    <div class="md-flex__cell md-flex__cell--stretch">
+      <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+        
+          <span class="md-header-nav__topic">
+            GraphQL Java Kickstart
+          </span>
+          <span class="md-header-nav__topic">
+            Defining a schema
+          </span>
+        
+      </div>
+    </div>
+
+    
+    <div class="md-flex__cell md-flex__cell--shrink">
+      
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query"
+          placeholder="Search"
+          autocapitalize="off" autocorrect="off" autocomplete="off"
+          spellcheck="false" data-md-component="query"
+          data-md-state="active" />
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon"
+          data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+
+    
+    
+      
+      
+        
+      
+        
+          <div class="md-flex__cell md-flex__cell--shrink">
+            <div class="md-header-nav__source">
+              
+
+
+  
+  
+  
+    
+  
+  
+  <a href="https://github.com/graphql-java-kickstart/graphql-java-tools" title="Go to repository" target="_blank"
+      class="md-source" data-md-source='github'>
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href='#__github' width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      graphql-java-kickstart/graphql-java-tools
+    </div>
+  </a>
+
+            </div>
+          </div>
+        
+      
+        
+      
+    
+
+  </div>
+</nav>
+
+</header>
+
+
+<div class="md-container">
+
+	
+	
+	
+		
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+      
+        
+        
+
+
+  
+
+<li class="md-tabs__item">
+  <a href="https://www.graphql-java-kickstart.com/tools/" title="Tools" class="md-tabs__link md-tabs__link--active">
+    Tools
+  </a>
+</li>
+
+      
+        
+        
+
+
+<li class="md-tabs__item">
+  <a href="https://www.graphql-java-kickstart.com/servlet/" title="Servlet" class="md-tabs__link">
+    Servlet
+  </a>
+</li>
+
+      
+        
+        
+
+
+<li class="md-tabs__item">
+  <a href="https://www.graphql-java-kickstart.com/spring-boot/" title="Spring Boot" class="md-tabs__link">
+    Spring Boot
+  </a>
+</li>
+
+      
+    </ul>
+  </div>
+</nav>
+
+	
+
+	
+	<main class="md-main">
+		<div class="md-main__inner md-grid" data-md-component="container">
+
+		
+		<div class="md-sidebar md-sidebar--primary"
+        data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          
+<nav class="md-nav md-nav--primary" data-md-level="0">
+    
+
+    
+    <label class="md-nav__title md-nav__title--site" for="__drawer">
+      <a href="https://github.com/graphql-java-kickstart"
+          title="GraphQL Java Kickstart" class="md-nav__button md-logo">
+        
+          <img src="https://www.graphql-java-kickstart.com/images/logo-graphql-kickstart-2000px.png" width="48" height="48" />
+        
+      </a>
+      GraphQL Java Kickstart
+    </label>
+
+    
+    <ul class="md-nav__list" data-md-scrollfix>
+
+      
+        
+          
+
+            
+              
+              
+
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/tools/" title="About GraphQL Java Tools"
+      class="md-nav__link">
+			
+			About GraphQL Java Tools
+  </a>
+</li>
+
+
+            
+              
+              
+
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/tools/getting-started/" title="Getting started"
+      class="md-nav__link">
+			
+			Getting started
+  </a>
+</li>
+
+
+            
+              
+              
+
+
+
+	
+
+
+
+
+<li class="md-nav__item md-nav__item--active">
+	
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
+        type="checkboxd" id="__toc" />
+
+		<a title="Defining a schema" href="https://www.graphql-java-kickstart.com/tools/schema-definition/"
+	        class="md-nav__link md-nav__link--active">
+			
+			Defining a schema
+		</a>
+</li>
+
+
+
+            
+              
+              
+
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/tools/schema-parser-options/" title="Schema parser options"
+      class="md-nav__link">
+			
+			Schema parser options
+  </a>
+</li>
+
+
+            
+              
+              
+
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/tools/relay/" title="Relay"
+      class="md-nav__link">
+			
+			Relay
+  </a>
+</li>
+
+
+            
+              
+              
+
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/tools/type-definition-factory/" title="Type Definition Factory"
+      class="md-nav__link">
+			
+			Type Definition Factory
+  </a>
+</li>
+
+
+            
+              
+              
+
+
+
+
+
+
+<li class="md-nav__item">
+  <a href="https://www.graphql-java-kickstart.com/tools/directives/" title="Directives"
+      class="md-nav__link">
+			
+			Directives
+  </a>
+</li>
+
+
+            
+
+          
+        
+          
+        
+          
+        
+      
+    </ul>
+</nav>
+
+        </div>
+      </div>
+    </div>
+
+		
+		<div class="md-sidebar md-sidebar--secondary"
+          data-md-component="toc">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+					
+
+
+<nav id="scrollspy" class="md-nav md-nav--secondary"></nav>
+
+        </div>
+      </div>
+    </div>
+
+		
+		<div class="md-content">
+      <article class="md-content__inner md-typeset">
+				
+				
+		
+		<h1>Defining a schema </h1>
+
+		<p>A <a href="http://graphql.org/learn/schema/">GraphQL schema</a> can be given either as raw strings:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// My application class
+</span><span style="color:#75715e"></span>SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">schemaString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Query { }&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><p>or as files on the classpath:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// My application class
+</span><span style="color:#75715e"></span>SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">file</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;my-schema.graphqls&#34;</span><span style="color:#f92672">)</span>
+
+<span style="color:#75715e">// my-schema.graphqls
+</span><span style="color:#75715e"></span>Query <span style="color:#f92672">{</span> <span style="color:#f92672">}</span>
+</code></pre></div><p>Multiple sources will be concatenated together in the order given, allowing you to modularize your schema if desired.</p>
+<h2 id="resolvers-and-data-classes">Resolvers and Data Classes</h2>
+<p>GraphQL Java Tools maps fields on your GraphQL objects to methods and properties on your java objects.
+For most scalar fields, a POJO with fields and/or getter methods is enough to describe the data to GraphQL.
+More complex fields (like looking up another object) often need more complex methods with state not provided by the GraphQL context (repositories, connections, etc).
+GraphQL Java Tools uses the concept of &ldquo;Data Classes&rdquo; and &ldquo;Resolvers&rdquo; to account for both of these situations.</p>
+<p>Given the following GraphQL schema</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Query</span> {
+    books: [<span style="color:#a6e22e">Book</span>!]
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Book</span> {
+    id: <span style="color:#a6e22e">Int</span>!
+    name: <span style="color:#a6e22e">String</span>!
+    author: <span style="color:#a6e22e">Author</span>!
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Author</span> {
+    id: <span style="color:#a6e22e">Int</span>!
+    name: <span style="color:#a6e22e">String</span>!
+}
+</code></pre></div><p>GraphQL Java Tools will expect to be given three classes that map to the GraphQL types: <code>Query</code>, <code>Book</code>, and <code>Author</code>.
+The Data classes for Book and Author are simple:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> authorId<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// constructor
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// getId
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// getName
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// getAuthorId
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Author</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// constructor
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// getId
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// getName
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>But what about the complex fields on <code>Query</code> and <code>Book</code>?
+These are handled by &ldquo;Resolvers&rdquo;.  Resolvers are object instances that reference the &ldquo;Data Class&rdquo; they resolve fields for.</p>
+<p>The BookResolver might look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookResolver</span> <span style="color:#66d9ef">implements</span> GraphQLResolver<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#75715e">/* This class is a resolver for the Book &#34;Data Class&#34; */</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> AuthorRepository authorRepository<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">BookResolver</span><span style="color:#f92672">(</span>AuthorRepository authorRepository<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">authorRepository</span> <span style="color:#f92672">=</span> authorRepository<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> Author <span style="color:#a6e22e">author</span><span style="color:#f92672">(</span>Book book<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> authorRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>book<span style="color:#f92672">.</span><span style="color:#a6e22e">getAuthorId</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>When given a BookResolver instance, GraphQL Java Tools first attempts to map fields to methods on the resolver before mapping them to fields or methods on the data class.
+If there is a matching method on the resolver, the data class instance is passed as the first argument to the resolver function.  This does not apply to root resolvers, since those don&rsquo;t have a data class to resolve for.
+An optional argument can be defined to inject the <code>DataFetchingEnvironment</code>, and must be the last argument.</p>
+<h3 id="root-resolvers">Root Resolvers</h3>
+<p>Since the Query/Mutation/Subscription objects are root GraphQL objects, they doesn&rsquo;t have an associated data class.  In those cases, any resolvers implementing <code>GraphQLQueryResolver</code>, <code>GraphQLMutationResolver</code>, or <code>GraphQLSubscriptionResolver</code> will be searched for methods that map to fields in their respective root types.  Root resolver methods can be spread between multiple resolvers, but a simple example is below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Query</span> <span style="color:#66d9ef">implements</span> GraphQLQueryResolver <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> BookRepository bookRepository<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Query</span><span style="color:#f92672">(</span>BookRepository bookRepository<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bookRepository</span> <span style="color:#f92672">=</span> bookRepository<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">books</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> bookRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Resolvers must be provided to the schema parser:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">resolvers</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Query<span style="color:#f92672">(</span>bookRepository<span style="color:#f92672">),</span> <span style="color:#66d9ef">new</span> BookResolver<span style="color:#f92672">(</span>authorRepository<span style="color:#f92672">))</span>
+</code></pre></div><h3 id="field-mapping-priority">Field Mapping Priority</h3>
+<p>The field mapping is done by name against public/protected methods and public/protected/private fields, with the following priority:</p>
+<p>First on the resolver or root resolver (note that dataClassInstance doesn&rsquo;t apply for root resolvers):</p>
+<ol>
+<li><code>method &lt;name&gt;(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])</code></li>
+<li><code>method is&lt;Name&gt;(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])</code>, only if the field returns a <code>Boolean</code></li>
+<li><code>method get&lt;Name&gt;(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])</code></li>
+<li><code>method getField&lt;Name&gt;(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])</code></li>
+</ol>
+<p>Then on the data class:</p>
+<ol>
+<li><code>method &lt;name&gt;(*fieldArgs [, DataFetchingEnvironment])</code></li>
+<li><code>method is&lt;Name&gt;(*fieldArgs [, DataFetchingEnvironment])</code>, only if the field returns a <code>Boolean</code></li>
+<li><code>method get&lt;Name&gt;(*fieldArgs [, DataFetchingEnvironment])</code></li>
+<li><code>method getField&lt;Name&gt;(*fieldArgs [, DataFetchingEnvironment])</code></li>
+<li><code>field &lt;name&gt;</code></li>
+</ol>
+<p>Last of all, if the data class implements<code>java.util.Map</code> then:</p>
+<ol>
+<li><code>method get(name)</code></li>
+</ol>
+<p><em>Note:</em> All reflection discovery is done on startup, and runtime reflection method calls use <a href="https://github.com/EsotericSoftware/reflectasm">reflectasm</a>, which increases performance and unifies stacktraces.  No more <code>InvocationTargetException</code>!</p>
+<p><em>Note:</em> <code>java.util.Optional</code> can be used for nullable field arguments and nullable return values, and the schema parser will verify that it&rsquo;s not used with non-null field arguments and return values.</p>
+<p><em>Note:</em> Methods on <code>java.lang.Object</code> are excluded from method matching, for example a field named <code>class</code> will require a method named <code>getFieldClass</code> defined.</p>
+<p><em>Note:</em> If one of the values of a type backed by a <code>java.util.Map</code> is non-scalar then this type will need to be added to the <code>type dictionary</code> (see below). After adding this type to the dictionary, GraphQL Java Tools will however still be able to find the types used in the fields of this added type.</p>
+<h2 id="enum-types">Enum Types</h2>
+<p>Enum values are automatically mapped by <code>Enum#name()</code>.</p>
+<h2 id="input-objects">Input Objects</h2>
+<p>GraphQL input objects don&rsquo;t need to be provided when parsing the schema - they&rsquo;re inferred from the resolver or data class method at run-time.
+If graphql-java passes a <code>Map&lt;?, ?&gt;</code> as an argument, GraphQL Java Tools attempts to marshall the data into the class expected by the method in that argument location.</p>
+<p>This resolver method&rsquo;s first argument will be marshalled automatically:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Query</span> <span style="color:#66d9ef">extends</span> GraphQLRootResolver <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>AdditionInput input<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">getFirst</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> input<span style="color:#f92672">.</span><span style="color:#a6e22e">getSecond</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AdditionInput</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> first<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> second<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// getFirst()
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// getSecond()
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><h2 id="interfaces-and-union-types">Interfaces and Union Types</h2>
+<p>GraphQL interface/union types are automatically resolved from the schema and the list of provided classes, and require no extra work outside of the schema.
+Although not necessary, it&rsquo;s generally a good idea to have java interfaces that correspond to your GraphQL interfaces to keep your code understandable.</p>
+<h2 id="scalar-types">Scalar Types</h2>
+<p>It&rsquo;s possible to create custom scalar types in GraphQL-Java by creating a new instance of the <code>GraphQLScalarType</code> class.  To use a custom scalar with GraphQL Java Tools, add the scalar to your GraphQL schema:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#66d9ef">scalar</span> <span style="color:#a6e22e">UUID</span>
+</code></pre></div><p>Then pass the scalar instance to the parser:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">scalars</span><span style="color:#f92672">(</span>myUuidScalar<span style="color:#f92672">)</span>
+</code></pre></div><h2 id="type-dictionary">Type Dictionary</h2>
+<p>Sometimes GraphQL Java Tools can&rsquo;t find classes when it scans your objects, usually because of limitations with interface and union types.  Sometimes your Java classes don&rsquo;t line up perfectly with your GraphQL schema, either. GraphQL Java Tools allows you to provide additional classes manually and &ldquo;rename&rdquo; them if desired:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">dictionary</span><span style="color:#f92672">(</span>Author<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">dictionary</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Book&#34;</span><span style="color:#f92672">,</span> BookClassWithIncorrectName<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+</code></pre></div><h2 id="making-the-graphql-java-schema-instance">Making the graphql-java Schema Instance</h2>
+<p>After you&rsquo;ve passed all relavant schema files/class to the parser, call <code>.build()</code> and <code>.makeExecutableSchema()</code> to get a graphql-java <code>GraphQLSchema</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">makeExecutableSchema</span><span style="color:#f92672">()</span>
+</code></pre></div><p>If you want to build the <code>GraphQLSchema</code> yourself, you can get all of the parsed objects with <code>parseSchemaObjects()</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">parseSchemaObjects</span><span style="color:#f92672">()</span>
+</code></pre></div><h2 id="graphql-descriptions">GraphQL Descriptions</h2>
+<p>GraphQL object/field/argument descriptions can be provided by comments in the schema:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#75715e"># One of the films in the Star Wars Trilogy</span>
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Episode</span> {
+    <span style="color:#75715e"># Released in 1977</span>
+    NEWHOPE
+    <span style="color:#75715e"># Released in 1980</span>
+    EMPIRE
+    <span style="color:#75715e"># Released in 1983</span>
+    JEDI
+}
+</code></pre></div><h2 id="graphql-deprecations">GraphQL Deprecations</h2>
+<p>GraphQL field/enum deprecations can be provided by the <code>@deprecated(reason: String)</code> directive, and are added to the generated schema.
+You can either supply a <strong>reason</strong> argument with a string value or not supply one and receive a &ldquo;No longer supported&rdquo; message when introspected:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-graphql" data-lang="graphql"><span style="color:#75715e"># One of the films in the Star Wars Trilogy</span>
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Episode</span> {
+    <span style="color:#75715e"># Released in 1977</span>
+    NEWHOPE,
+    <span style="color:#75715e"># Released in 1980</span>
+    EMPIRE,
+    <span style="color:#75715e"># Released in 1983</span>
+    JEDI,
+    <span style="color:#75715e"># Released in 1999</span>
+    PHANTOM <span style="color:#a6e22e">@deprecated</span>(reason: <span style="color:#e6db74">&#34;Not worth referencing&#34;</span>),
+    <span style="color:#75715e"># Released in 2002</span>
+    <span style="color:#a6e22e">CLONES</span> <span style="color:#a6e22e">@deprecated</span>
+}
+</code></pre></div>
+
+
+				
+				
+
+			</article>
+		</div>
+	</main>
+
+	
+	
+<footer class="md-footer">
+  
+    
+      <div class="md-footer-nav">
+          <nav class="md-footer-nav__inner md-grid">
+
+          
+          
+            <a href="https://www.graphql-java-kickstart.com/tools/getting-started/"
+                title="Getting started"
+                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+                rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back
+                      md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch
+                    md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Getting started
+                </span>
+              </div>
+            </a>
+          
+
+          
+          
+            <a href="https://www.graphql-java-kickstart.com/tools/schema-parser-options/"
+                title="Schema parser options"
+                class="md-flex md-footer-nav__link md-footer-nav__link--next"
+                rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch
+                    md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  <span style="position: absolute; right: 0; padding: 0 2rem;">
+                  Schema parser options
+                  </span>
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward
+                      md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+  
+
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Released under the Apache 2.0 license
+          </div>
+        
+        powered by
+        <a href="https://gohugo.io">Hugo</a>
+        and
+        <a href="https://github.com/oliemansm/hugo-material-docs">
+          Material Docs for Hugo</a>
+      </div>
+
+      
+      
+
+
+<div class="md-footer-social">
+  <link rel="stylesheet" type="text/css"
+      href='https://www.graphql-java-kickstart.com/fonts/font-awesome.css' />
+  
+  
+    <a href="https://github.com/graphql-java-kickstart" target="_blank" class="md-footer-social__link fa fa-github-alt"></a>
+  
+  
+  
+</div>
+
+    </div>
+  </div>
+</footer>
+
+</div>
+    <script>
+    
+      var base_url = 'https:\/\/www.graphql-java-kickstart.com\/';
+      var repo_id  = 'graphql-java-kickstart';
+    
+    </script>
+
+    <script src="https://www.graphql-java-kickstart.com/javascripts/application.js"></script>
+    
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>
+      hljs.registerLanguage("graphql",function(e){return{aliases:["gql"],k:{keyword:"query mutation subscription|10 type input schema directive interface union scalar fragment|10 enum on ...",literal:"true false null"},c:[e.HCM,e.QSM,e.NM,{cN:"type",b:"[^\\w][A-Z][a-z]",e:"\\W",eE:!0},{cN:"literal",b:"[^\\w][A-Z][A-Z]",e:"\\W",eE:!0},{cN:"variable",b:"\\$",e:"\\W",eE:!0},{cN:"keyword",b:"[.]{2}",e:"\\."},{cN:"meta",b:"@",e:"\\W",eE:!0}],i:/([;<']|BEGIN)/}});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script>app.initialize({version:"1.0.4",url:{base:"https:\/\/www.graphql-java-kickstart.com\/"}})</script>
+  </body>
+</html>
+

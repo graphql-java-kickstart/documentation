@@ -55,7 +55,7 @@ type Author {
 ```
 
 GraphQL Java Tools will expect to be given three classes that map to the GraphQL types: `Query`, `Book`, and `Author`.
-The Data classes for Book and Author are simple:
+The Data classes for `Book` and `Author` are simple:
 
 ```java
 class Book {
@@ -81,10 +81,10 @@ class Author {
 }
 ```
 
-But what about the complex fields on `Query` and `Book`?
+What about the complex fields on `Query` and `Book`?
 These are handled by "Resolvers".  Resolvers are object instances that reference the "Data Class" they resolve fields for.
 
-The BookResolver might look something like this:
+The `BookResolver` might look something like this:
 ```java
 class BookResolver implements GraphQLResolver<Book> /* This class is a resolver for the Book "Data Class" */ {
 
@@ -100,13 +100,13 @@ class BookResolver implements GraphQLResolver<Book> /* This class is a resolver 
 }
 ```
 
-When given a BookResolver instance, GraphQL Java Tools first attempts to map fields to methods on the resolver before mapping them to fields or methods on the data class.
+When given a `BookResolver` instance, GraphQL Java Tools first attempts to map fields to methods on the resolver before mapping them to fields or methods on the data class.
 If there is a matching method on the resolver, the data class instance is passed as the first argument to the resolver function.  This does not apply to root resolvers, since those don't have a data class to resolve for.
-An optional argument can be defined to inject the `DataFetchingEnvironment`, and must be the last argument.
+An optional parameter can be defined to inject the `DataFetchingEnvironment`, and must be the last argument.
 
 ### Root Resolvers
 
-Since the Query/Mutation/Subscription objects are root GraphQL objects, they doesn't have an associated data class.  In those cases, any resolvers implementing `GraphQLQueryResolver`, `GraphQLMutationResolver`, or `GraphQLSubscriptionResolver` will be searched for methods that map to fields in their respective root types.  Root resolver methods can be spread between multiple resolvers, but a simple example is below:
+Since the Query/Mutation/Subscription objects are root GraphQL objects, they don't have an associated data class.  In those cases, any resolvers implementing `GraphQLQueryResolver`, `GraphQLMutationResolver`, or `GraphQLSubscriptionResolver` will be searched for methods that map to fields in their respective root types.  Root resolver methods can be spread between multiple resolvers, but a simple example is below:
 ```java
 class Query implements GraphQLQueryResolver {
 
@@ -152,9 +152,7 @@ Last of all, if the data class implements`java.util.Map` then:
 1. `method get(name)`
 
 
-*Note:* All reflection discovery is done on startup, and runtime reflection method calls use [reflectasm](https://github.com/EsotericSoftware/reflectasm), which increases performance and unifies stacktraces.  No more `InvocationTargetException`!
-
-*Note:* `java.util.Optional` can be used for nullable field arguments and nullable return values, and the schema parser will verify that it's not used with non-null field arguments and return values.
+<!--*Note:* `java.util.Optional` can be used for nullable field arguments and nullable return values, and the schema parser will verify that it's not used with non-null field arguments and return values.-->
 
 *Note:* Methods on `java.lang.Object` are excluded from method matching, for example a field named `class` will require a method named `getFieldClass` defined.
 
@@ -217,7 +215,7 @@ SchemaParser.newParser()
 
 ## Making the graphql-java Schema Instance
 
-After you've passed all relavant schema files/class to the parser, call `.build()` and `.makeExecutableSchema()` to get a graphql-java `GraphQLSchema`:
+After you've passed all relevant schema files/class to the parser, call `.build()` and `.makeExecutableSchema()` to get a graphql-java `GraphQLSchema`:
 
 ```java
 SchemaParser.newParser()
@@ -226,7 +224,7 @@ SchemaParser.newParser()
     .makeExecutableSchema()
 ```
 
-If you want to build the `GraphQLSchema` yourself, you can get all of the parsed objects with `parseSchemaObjects()`:
+If you want to build the `GraphQLSchema` yourself, you can get all the parsed objects with `parseSchemaObjects()`:
 
 ```java
 SchemaParser.newParser()
