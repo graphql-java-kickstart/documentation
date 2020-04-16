@@ -10,7 +10,14 @@ then
     git config user.email "graphql-java-kickstart-bot@users.noreply.github.com"
     git config user.name "graphql-java-kickstart-bot"
 fi
-ls -l
+
+mv public ~/public
+
+cd ~
+git clone https://github.com/graphql-java-kickstart/graphql-java-kickstart.github.io.git github-pages
+cd github-pages
+cp -rf ~/public/* ~/github-pages/.
+
 echo "Add files to git"
 git add .
 echo "Commit files to git"
