@@ -6,9 +6,7 @@
 2. Execute `brew install hugo`
 3. Execute `hugo server` in the root of the project
 
-## Important use of submodule
-
-:warning: **DO NOT DELETE THE `PUBLIC` FOLDER**
+## :warning: Do not delete the `PUBLIC` folder
 
 Deployment of the build depends on a git submodule that is configured in the folder `public`. Deleting this folder
 will break deployment and will prevent any updates of the documentation from being published to the Github Pages
