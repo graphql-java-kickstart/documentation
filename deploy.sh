@@ -12,7 +12,7 @@ then
 fi
 
 pwd
-BUILD="$(pwd)/public"
+BUILD="$(pwd)/public/*"
 
 cd ~
 git clone https://github.com/graphql-java-kickstart/graphql-java-kickstart.github.io.git github-pages
