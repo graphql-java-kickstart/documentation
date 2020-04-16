@@ -17,7 +17,7 @@ BUILD="$(pwd)/public"
 cd ~
 git clone https://github.com/graphql-java-kickstart/graphql-java-kickstart.github.io.git github-pages
 cd github-pages
-cp -rf "$BUILD/*" ~/github-pages/.
+cp -rf "$BUILD" ~/github-pages/.
 
 echo "Add files to git"
 git add .
