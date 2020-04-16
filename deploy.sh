@@ -11,10 +11,13 @@ then
     git config user.name "graphql-java-kickstart-bot"
 fi
 
+pwd
+BUILD="$(pwd)/public"
+
 cd ~
 git clone https://github.com/graphql-java-kickstart/graphql-java-kickstart.github.io.git github-pages
 cd github-pages
-cp -rf ~/graphql-java-kickstart/documentation/public/* ~/github-pages/.
+cp -rf "$BUILD/*" ~/github-pages/.
 
 echo "Add files to git"
 git add .
