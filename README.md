@@ -1,4 +1,6 @@
-# GraphQL Kickstart Documentation
+# [GraphQL Kickstart Documentation](https://www.graphql-java-kickstart.com/tools/)
 [![Build Status](https://travis-ci.org/graphql-java-kickstart/documentation.svg?branch=master)](https://travis-ci.org/graphql-java-kickstart/documentation)
 
-### [Documentation for GraphQL Kickstart projects.](https://www.graphql-java-kickstart.com/tools/)
+### How to run site locally
+1. Execute `brew install hugo`
+2. Execute `hugo server -D` in the root of the project
