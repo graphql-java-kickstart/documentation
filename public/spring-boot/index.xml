@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About GraphQL Spring Boot on GraphQL Java Kickstart</title>
+    <link>https://www.graphql-java-kickstart.com/spring-boot/</link>
+    <description>Recent content in About GraphQL Spring Boot on GraphQL Java Kickstart</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Mar 2016 21:07:13 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.graphql-java-kickstart.com/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting started</title>
+      <link>https://www.graphql-java-kickstart.com/spring-boot/getting-started/</link>
+      <pubDate>Wed, 07 Nov 2018 00:11:02 +0100</pubDate>
+      
+      <guid>https://www.graphql-java-kickstart.com/spring-boot/getting-started/</guid>
+      <description>This project requires at least the following version:
+ Java 8 Spring Boot &amp;gt; 2.x.x (spring-boot-starter-web)  Quick start To add graphql-spring-boot to your project and get started quickly, do the following.
+Build with Gradle Make sure mavenCentral is amongst your repositories:
+repositories { mavenCentral() } Add the respective starter dependencies you want to use:
+dependencies { compile &amp;#39;com.graphql-java-kickstart:graphql-spring-boot-starter:5.2&amp;#39; compile &amp;#39;com.graphql-java-kickstart:graphiql-spring-boot-starter:5.2&amp;#39; compile &amp;#39;com.graphql-java-kickstart:voyager-spring-boot-starter:5.2&amp;#39; testCompile &amp;#39;com.graphql-java-kickstart:graphql-spring-boot-starter-test:5.2&amp;#39; } Build with Maven Add the respective starter dependencies you want to use:</description>
+    </item>
+    
+    <item>
+      <title>Type Definition Factory</title>
+      <link>https://www.graphql-java-kickstart.com/spring-boot/type-definition-factory/</link>
+      <pubDate>Wed, 07 Nov 2018 00:11:02 +0100</pubDate>
+      
+      <guid>https://www.graphql-java-kickstart.com/spring-boot/type-definition-factory/</guid>
+      <description>The Type Definition Factory has been added with to be able to dynamically add type definitions to the schema instead of having to define them manually in the SDL. There are a couple of use cases where the types that have to be defined are very much alike and only certain parts are different. For example the connection and edge types used by Relay. Since generics isn&amp;rsquo;t supported in the definition language this type definition factory has been added.</description>
+    </item>
+    
+    <item>
+      <title>Directives</title>
+      <link>https://www.graphql-java-kickstart.com/spring-boot/directives/</link>
+      <pubDate>Wed, 07 Nov 2018 00:11:02 +0100</pubDate>
+      
+      <guid>https://www.graphql-java-kickstart.com/spring-boot/directives/</guid>
+      <description>See Schema Directives for a detailed explanation about directives including examples on how to define them in the SDL and to create the required classes.
+To add your custom SchemaDirectiveWiring to graphql-spring-boot create a bean of type SchemaDirective to have it automatically passed along to the SchemaParser
+SchemaDirective.create(&amp;quot;uppercase&amp;quot;, new UppercaseDirective()) Basic usage Let&amp;rsquo;s say you defined a custom directive to make text uppercase in a resource schema.graphqls:
+directive @uppercase on FIELD_DEFINITION type Query { hello: String @uppercase } And the actual implementation is the following:</description>
+    </item>
+    
+  </channel>
+</rss>
