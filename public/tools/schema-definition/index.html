@@ -592,7 +592,7 @@ GraphQL Java Tools uses the concept of &ldquo;Data Classes&rdquo; and &ldquo;Res
     name: <span style="color:#a6e22e">String</span>!
 }
 </code></pre></div><p>GraphQL Java Tools will expect to be given three classes that map to the GraphQL types: <code>Query</code>, <code>Book</code>, and <code>Author</code>.
-The Data classes for Book and Author are simple:</p>
+The Data classes for <code>Book</code> and <code>Author</code> are simple:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
@@ -614,9 +614,9 @@ The Data classes for Book and Author are simple:</p>
     <span style="color:#75715e">// getId
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">// getName
 </span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-</code></pre></div><p>But what about the complex fields on <code>Query</code> and <code>Book</code>?
+</code></pre></div><p>What about the complex fields on <code>Query</code> and <code>Book</code>?
 These are handled by &ldquo;Resolvers&rdquo;.  Resolvers are object instances that reference the &ldquo;Data Class&rdquo; they resolve fields for.</p>
-<p>The BookResolver might look something like this:</p>
+<p>The <code>BookResolver</code> might look something like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookResolver</span> <span style="color:#66d9ef">implements</span> GraphQLResolver<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#75715e">/* This class is a resolver for the Book &#34;Data Class&#34; */</span> <span style="color:#f92672">{</span>
 
     <span style="color:#66d9ef">private</span> AuthorRepository authorRepository<span style="color:#f92672">;</span>
@@ -629,11 +629,11 @@ These are handled by &ldquo;Resolvers&rdquo;.  Resolvers are object instances th
         <span style="color:#66d9ef">return</span> authorRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>book<span style="color:#f92672">.</span><span style="color:#a6e22e">getAuthorId</span><span style="color:#f92672">());</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p>When given a BookResolver instance, GraphQL Java Tools first attempts to map fields to methods on the resolver before mapping them to fields or methods on the data class.
+</code></pre></div><p>When given a <code>BookResolver</code> instance, GraphQL Java Tools first attempts to map fields to methods on the resolver before mapping them to fields or methods on the data class.
 If there is a matching method on the resolver, the data class instance is passed as the first argument to the resolver function.  This does not apply to root resolvers, since those don&rsquo;t have a data class to resolve for.
-An optional argument can be defined to inject the <code>DataFetchingEnvironment</code>, and must be the last argument.</p>
+An optional parameter can be defined to inject the <code>DataFetchingEnvironment</code>, and must be the last argument.</p>
 <h3 id="root-resolvers">Root Resolvers</h3>
-<p>Since the Query/Mutation/Subscription objects are root GraphQL objects, they doesn&rsquo;t have an associated data class.  In those cases, any resolvers implementing <code>GraphQLQueryResolver</code>, <code>GraphQLMutationResolver</code>, or <code>GraphQLSubscriptionResolver</code> will be searched for methods that map to fields in their respective root types.  Root resolver methods can be spread between multiple resolvers, but a simple example is below:</p>
+<p>Since the Query/Mutation/Subscription objects are root GraphQL objects, they don&rsquo;t have an associated data class.  In those cases, any resolvers implementing <code>GraphQLQueryResolver</code>, <code>GraphQLMutationResolver</code>, or <code>GraphQLSubscriptionResolver</code> will be searched for methods that map to fields in their respective root types.  Root resolver methods can be spread between multiple resolvers, but a simple example is below:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Query</span> <span style="color:#66d9ef">implements</span> GraphQLQueryResolver <span style="color:#f92672">{</span>
 
     <span style="color:#66d9ef">private</span> BookRepository bookRepository<span style="color:#f92672">;</span>
@@ -671,8 +671,7 @@ An optional argument can be defined to inject the <code>DataFetchingEnvironment<
 <ol>
 <li><code>method get(name)</code></li>
 </ol>
-<p><em>Note:</em> All reflection discovery is done on startup, and runtime reflection method calls use <a href="https://github.com/EsotericSoftware/reflectasm">reflectasm</a>, which increases performance and unifies stacktraces.  No more <code>InvocationTargetException</code>!</p>
-<p><em>Note:</em> <code>java.util.Optional</code> can be used for nullable field arguments and nullable return values, and the schema parser will verify that it&rsquo;s not used with non-null field arguments and return values.</p>
+<!-- raw HTML omitted -->
 <p><em>Note:</em> Methods on <code>java.lang.Object</code> are excluded from method matching, for example a field named <code>class</code> will require a method named <code>getFieldClass</code> defined.</p>
 <p><em>Note:</em> If one of the values of a type backed by a <code>java.util.Map</code> is non-scalar then this type will need to be added to the <code>type dictionary</code> (see below). After adding this type to the dictionary, GraphQL Java Tools will however still be able to find the types used in the fields of this added type.</p>
 <h2 id="enum-types">Enum Types</h2>
@@ -711,12 +710,12 @@ Although not necessary, it&rsquo;s generally a good idea to have java interfaces
 </span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">dictionary</span><span style="color:#f92672">(</span>Author<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
     <span style="color:#f92672">.</span><span style="color:#a6e22e">dictionary</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Book&#34;</span><span style="color:#f92672">,</span> BookClassWithIncorrectName<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 </code></pre></div><h2 id="making-the-graphql-java-schema-instance">Making the graphql-java Schema Instance</h2>
-<p>After you&rsquo;ve passed all relavant schema files/class to the parser, call <code>.build()</code> and <code>.makeExecutableSchema()</code> to get a graphql-java <code>GraphQLSchema</code>:</p>
+<p>After you&rsquo;ve passed all relevant schema files/class to the parser, call <code>.build()</code> and <code>.makeExecutableSchema()</code> to get a graphql-java <code>GraphQLSchema</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
     <span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">()</span>
     <span style="color:#f92672">.</span><span style="color:#a6e22e">makeExecutableSchema</span><span style="color:#f92672">()</span>
-</code></pre></div><p>If you want to build the <code>GraphQLSchema</code> yourself, you can get all of the parsed objects with <code>parseSchemaObjects()</code>:</p>
+</code></pre></div><p>If you want to build the <code>GraphQLSchema</code> yourself, you can get all the parsed objects with <code>parseSchemaObjects()</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SchemaParser<span style="color:#f92672">.</span><span style="color:#a6e22e">newParser</span><span style="color:#f92672">()</span>
     <span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">()</span>
