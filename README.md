@@ -5,3 +5,6 @@
 1. Clone this repository
 2. Execute `brew install hugo`
 3. Execute `hugo server` in the root of the project
+
+## Important use of submodule
+

@@ -1,6 +1,8 @@
 #!/bin/bash
 echo -e "Deploying updates to GitHub..."
 
+cd public
+
 if [ -n "$GITHUB_AUTH_SECRET" ]
 then
     touch ~/.git-credentials
@@ -11,15 +13,6 @@ then
     git config user.name "graphql-java-kickstart-bot"
 fi
 
-#pwd
-#BUILD="$(pwd)/public"
-#
-#cd ~
-#git clone https://github.com/graphql-java-kickstart/graphql-java-kickstart.github.io.git github-pages
-#cd github-pages
-#cp -rf "$BUILD" ~/github-pages
-
-cd public
 echo "Add files to git"
 git add .
 echo "Commit files to git"
