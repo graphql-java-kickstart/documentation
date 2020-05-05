@@ -106,7 +106,7 @@ Press any key to stop the server.
 ### Send a GraphQL Query
 
 You can now send a GraphQL query to your local servlet, for example using [Insomnia](https://insomnia.rest/graphql/).
-In this case the URL to post the GraphQL query to is http://localhost:8080/graphql-java-servlet-hello-world/graphql.
+In this case the URL to post the GraphQL query to is [http://localhost:8080/graphql-java-servlet-hello-world/graphql].
 
 The following GraphQL query is what the example implementation supports:
 ```gradle
