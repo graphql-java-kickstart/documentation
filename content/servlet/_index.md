@@ -118,3 +118,10 @@ ServletRegistrationBean graphQLServletRegistrationBean(GraphQLSchema schema, Exe
     return new ServletRegistrationBean(new SimpleGraphQLServlet(schema, executionStrategy, operationListeners), "/graphql");
 }
 ```
+
+## GraphQL Subscription support
+
+Subscriptions over WebSocket are fully supported within Spring Boot, but may require some work if you're using another 
+framework. There is an example [here](https://github.com/graphql-java-kickstart/samples/tree/master/subscription-with-authentication). 
+Internally, [JSR 356](https://www.oracle.com/technical-resources/articles/java/jsr356.html) is used for WebSocket 
+support. The endpoint is [GraphQLWebSocketServlet](https://github.com/graphql-java-kickstart/graphql-java-servlet/blob/38af304a9da1a57ac7475098b7fccec1b063646b/graphql-java-servlet/src/main/java/graphql/kickstart/servlet/GraphQLWebsocketServlet.java).
