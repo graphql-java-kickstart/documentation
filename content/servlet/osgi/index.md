@@ -62,3 +62,10 @@ And here is a sample src/main/feature/feature.xml file to add some dependencies 
 Here's an example of a GraphQL provider that implements three interfaces at the same time.
 
 * [ExampleGraphQLProvider](examples/osgi/providers/src/main/java/graphql/servlet/examples/osgi/ExampleGraphQLProvider.java)
+
+### Relay.js support
+
+Relay.js support is provided by the [EnhancedExecutionStrategy](https://github.com/graphql-java/graphql-java-annotations/blob/master/src/main/java/graphql/annotations/EnhancedExecutionStrategy.java) of [graphql-java-annotations](https://github.com/graphql-java/graphql-java-annotations).
+You **MUST** pass this execution strategy to the servlet for Relay.js support.
+
+This is the default execution strategy for the `OsgiGraphQLHttpServlet`, and must be added as a dependency when using that servlet.
