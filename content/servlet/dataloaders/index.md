@@ -15,7 +15,7 @@ with the provided [GraphQLConfiguration](https://github.com/graphql-java-kicksta
 A new [DataLoaderRegistry](https://github.com/graphql-java/java-dataloader/blob/master/src/main/java/org/dataloader/DataLoaderRegistry.java) should be created in each call to the GraphQLContextBuilder, and the servlet will call the builder at the appropriate times.
 For example:
 ```java
-public class CustomGraphQLContextBuilder implements GraphQLContextBuilder {
+public class CustomGraphQLContextBuilder implements GraphQLServletContextBuilder {
 
   private final DataLoader userDataLoader;
     
