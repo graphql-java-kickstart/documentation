@@ -69,7 +69,7 @@ Add the Snapshot repository:
 ```gradle
 repositories {
     mavenCentral()
-    maven { url "http://oss.jfrog.org/artifactory/oss-snapshot-local" }
+    maven { url "https://oss.jfrog.org/artifactory/oss-snapshot-local" }
 }
 ```
 
@@ -81,7 +81,7 @@ Add the Snapshot repository:
   <repository>
     <id>oss-snapshot-local</id>
     <name>jfrog</name>
-    <url>http://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+    <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
     <snapshots>
       <enabled>true</enabled>
       <updatePolicy>always</updatePolicy>
