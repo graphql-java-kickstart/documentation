@@ -67,10 +67,10 @@ Support for directives is currently limited to the following locations:
 * `INTERFACE`
 * `UNION`
 * `ENUM`
+* `ENUM_VALUE`
 * `INPUT_OBJECT`
 * `INPUT_FIELD_DEFINITION`
 
 Meaning directives for the following locations are currently not yet supported:
 
 * `SCALAR`
-* `ENUM_VALUE`
