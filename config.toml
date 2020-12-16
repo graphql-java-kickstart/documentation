@@ -18,7 +18,7 @@ googleAnalytics = ""
 	repo_name = "graphql-java-kickstart"
 	repo_url = "https://github.com/graphql-java-kickstart"
 
-	version = "6.2.0"
+	version = "6.3.0"
 	favicon = "images/favicon.ico"
 
 	permalink = "#"
