@@ -27,5 +27,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          external_repository: graphql-java-kickstart/graphql-java-kickstart.github.io
+          publish_branch: master
           publish_dir: ./public
           cname: www.graphql-java-kickstart.com
