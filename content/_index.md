@@ -34,13 +34,12 @@ exception handler annotations to convert exceptions into GraphQL errors.
 
 ## Community
 
-We've been trying out various community platforms. Now that Github has released the Discussions
-feature we've enabled that for all our projects.
-It has a great Q&A functionality and whenever you can't find the answers in the
-documentation or samples mentioned above then this is the place you should go.
+Use Github Discussions to get in contact with the community and maintainers. 
+It has a great Q&A functionality, so whenever you can't find the answers in the
+documentation or samples mentioned above this is the place to go.
 
 Chances are somebody has asked the same question before and has an accepted answer
-that helps you too. If not it's easy to ask a question there. Try to use
+that will help you out. If not it's easy to ask a question there. Try to use
 the Discussions section of the relevant project:
 
 * [GraphQL Java Tools](https://github.com/graphql-java-kickstart/graphql-java-tools/discussions)
