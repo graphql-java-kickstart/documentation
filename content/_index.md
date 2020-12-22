@@ -48,4 +48,3 @@ the Discussions section of the relevant project:
 * [GraphQL Spring Boot](https://github.com/graphql-java-kickstart/graphql-spring-boot/discussions)
 * [GraphQL Spring WebClient](https://github.com/graphql-java-kickstart/graphql-spring-webclient/discussions)
 
-This is a test...
