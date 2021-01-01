@@ -14,6 +14,11 @@ services or features.
 
 * **graphql-spring-boot-starter**: turns your Spring Boot application into
 a GraphQL Server using [GraphQL Servlet]({{< relref "/servlet/getting-started/index.md" >}})
+and [GraphQL Java Tools]({{< relref "/tools/" >}})
+
+* **graphql-kickstart-spring-boot-starter-graphql-annotations**: turns your Spring Boot application into 
+a GraphQL Server using [GraphQL Servlet]({{< relref "/servlet/getting-started/index.md" >}})
+and [GraphQL-Java Annotations](https://github.com/Enigmatis/graphql-java-annotations)
 
 * **graphiql-spring-boot-starter**: embeds the **GraphiQL** tool for schema
 introspection and query debugging (see [GraphiQL](https://github.com/graphql/graphiql))
