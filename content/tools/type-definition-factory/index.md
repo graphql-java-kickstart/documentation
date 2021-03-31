@@ -9,11 +9,11 @@ menu:
     url: /tools/type-definition-factory/
 ---
 
-The **Type Definition Factory** has been added with to be able to dynamically
+The **Type Definition Factory** has been added to allow to dynamically
 add type definitions to the schema instead of having to define them manually
 in the SDL. There are a couple of use cases where the types that have to be defined
 are very much alike and only certain parts are different. For example the
-connection and edge types used by [Relay]({{< relref "/tools/relay/index.md" >}}). Since generics isn't supported in
+connection and edge types used by [Relay]({{< relref "/tools/relay/index.md" >}}). Since generics aren't supported in
 the definition language this type definition factory has been added.
 
 ## Basic usage
