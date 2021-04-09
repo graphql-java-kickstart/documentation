@@ -8,10 +8,10 @@ menu:
     parent: Tools
 ---
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.graphql-java-kickstart/graphql-java-tools.svg)](https://img.shields.io/maven-central/v/com.graphql-java-kickstart/graphql-java-tools.svg)
+[![Maven Central](https://img.shields.io/maven-central/v/com.graphql-java-kickstart/graphql-java-tools.svg)](https://maven-badges.herokuapp.com/maven-central/com.graphql-java-kickstart/graphql-java-tools)
 [![TravisCI Build](https://travis-ci.org/graphql-java-kickstart/graphql-java-tools.svg?branch=master)](https://travis-ci.org/graphql-java-kickstart/graphql-java-tools)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=graphql-java-kickstart_graphql-java-tools&metric=alert_status)](https://sonarcloud.io/dashboard?id=graphql-java-kickstart_graphql-java-tools)
-[![GitHub contributors](https://img.shields.io/github/contributors/graphql-java-kickstart/graphql-java-tools)](https://img.shields.io/github/contributors/graphql-java-kickstart/graphql-java-tools)
+[![GitHub contributors](https://img.shields.io/github/contributors/graphql-java-kickstart/graphql-java-tools)](https://github.com/graphql-java-kickstart/graphql-java-tools/graphs/contributors)
 [![Discuss on GitHub](https://img.shields.io/badge/GitHub-discuss-orange)](https://github.com/graphql-java-kickstart/graphql-java-tools/discussions)
 
 This library allows you to use the GraphQL schema language to build your [graphql-java](https://github.com/graphql-java/graphql-java) schema.
