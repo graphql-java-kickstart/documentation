@@ -1,9 +1,8 @@
 # [GraphQL Java Kickstart Documentation](https://www.graphql-java-kickstart.com/)
 
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.graphql-java-kickstart/graphql-spring-boot-starter.svg)](https://img.shields.io/maven-central/v/com.graphql-java-kickstart/graphql-spring-boot-starter.svg)
 [![GitHub CI Workflow](https://github.com/graphql-java-kickstart/documentation/actions/workflows/publish.yml/badge.svg?branch=master)](https://github.com/graphql-java-kickstart/documentation/actions/workflows/publish.yml?query=branch%3Amaster)
-[![GitHub contributors](https://img.shields.io/github/contributors/graphql-java-kickstart/documentation)](https://img.shields.io/github/contributors/graphql-java-kickstart/graphql-spring-boot)
+[![GitHub contributors](https://img.shields.io/github/contributors/graphql-java-kickstart/documentation)](https://github.com/graphql-java-kickstart/documentation/graphs/contributors)
 [![Discuss on GitHub](https://img.shields.io/badge/GitHub-discuss-orange)](https://github.com/graphql-java-kickstart/graphql-spring-boot/discussions)
 
 
