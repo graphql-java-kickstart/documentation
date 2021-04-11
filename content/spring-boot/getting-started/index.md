@@ -30,10 +30,10 @@ repositories {
 Add the respective starter dependencies you want to use:
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:7.0.1'
-    compile 'com.graphql-java-kickstart:graphiql-spring-boot-starter:7.0.1'
-    compile 'com.graphql-java-kickstart:voyager-spring-boot-starter:7.0.1'
-    testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:7.0.1'
+    compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
+    compile 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0'
+    compile 'com.graphql-java-kickstart:voyager-spring-boot-starter:11.0.0'
+    testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:11.0.0'
 }
 ```
 
@@ -44,29 +44,34 @@ Add the respective starter dependencies you want to use:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-spring-boot-starter</artifactId>
-  <version>7.0.1</version>
+  <version>11.0.0</version>
 </dependency>
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphiql-spring-boot-starter</artifactId>
-  <version>7.0.1</version>
+  <version>11.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.graphql-java-kickstart</groupId>
+  <artifactId>playground-spring-boot-starter</artifactId>
+  <version>11.0.0</version>
 </dependency>
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>voyager-spring-boot-starter</artifactId>
-  <version>7.0.1</version>
+  <version>11.0.0</version>
 </dependency>
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-spring-boot-starter-test</artifactId>
-  <version>7.0.1</version>
+  <version>11.0.0</version>
   <scope>test</scope>
 </dependency>
 ```
 
 ## Using the latest development build
 
-Snapshot versions of the current `master` branch are availble on JFrog. Check the next snapshot version on
+Snapshot versions of the current `master` branch are available on JFrog. Check the next snapshot version on
 [Github](https://github.com/graphql-java-kickstart/graphql-java-tools/blob/master/gradle.properties)
 
 ### Build with Gradle

@@ -7,6 +7,13 @@ menu:
     parent: Spring Boot
 ---
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.graphql-java-kickstart/graphql-spring-boot-starter.svg)](https://maven-badges.herokuapp.com/maven-central/com.graphql-java-kickstart/graphql-spring-boot-starter)
+[![GitHub CI Workflow](https://github.com/graphql-java-kickstart/graphql-spring-boot/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/graphql-java-kickstart/graphql-spring-boot/actions/workflows/ci.yml?query=workflow%3ACI+branch%3Amaster)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=graphql-java-kickstart_graphql-spring-boot&metric=alert_status)](https://sonarcloud.io/dashboard?id=graphql-java-kickstart_graphql-spring-boot)
+[![GitHub contributors](https://img.shields.io/github/contributors/graphql-java-kickstart/graphql-spring-boot)](https://github.com/graphql-java-kickstart/graphql-spring-boot/graphs/contributors)
+[![Discuss on GitHub](https://img.shields.io/badge/GitHub-discuss-orange)](https://github.com/graphql-java-kickstart/graphql-spring-boot/discussions)
+
+
 This library contains various Spring Boot starters to enable GraphQL related
 services or features.
 
@@ -22,6 +29,10 @@ and [GraphQL-Java Annotations](https://github.com/Enigmatis/graphql-java-annotat
 
 * **graphiql-spring-boot-starter**: embeds the **GraphiQL** tool for schema
 introspection and query debugging (see [GraphiQL](https://github.com/graphql/graphiql))
+
+* **playground-spring-boot-starter**: embeds the **GraphQL Playground** tool for schema
+  introspection and query debugging (see [GraphQL Playground](https://github.com/prisma/graphql-playground))
+
 
 * **graphql-spring-boot-starter-test**: adds testing capabilities to your project,
 like the `@GraphQLTest` annotation which is comparable to `@SpringBootTest`

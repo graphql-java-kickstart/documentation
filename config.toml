@@ -49,6 +49,21 @@ googleAnalytics = ""
 		url = "https://github.com/graphql-java-kickstart/graphql-spring-boot"
 		menu = "Spring Boot"
 
+  [[params.repositories]]
+    name = "graphql-java-kickstart/graphql-spring-webclient"
+    url = "https://github.com/graphql-java-kickstart/graphql-spring-webclient"
+    menu = "Web Client"
+
+  [[params.repositories]]
+    name = "graphql-java-kickstart/samples"
+    url = "https://github.com/graphql-java-kickstart/samples"
+    menu = "Samples"
+
+  [[params.repositories]]
+    name = "philip-jvm/learn-spring-boot-graphql"
+    url = "https://github.com/philip-jvm/learn-spring-boot-graphql"
+    menu = "Tutorials"
+
 	[params.logo]
 		icon = ""
 		image = "images/logo-graphql-kickstart-2000px.png"
@@ -82,6 +97,21 @@ googleAnalytics = ""
 	name   = "Spring Boot"
 	url    = "/spring-boot/"
 	weight = 30
+
+[[menu.main]]
+	name   = "Web Client"
+	url    = "/web-client/"
+	weight = 40
+
+[[menu.main]]
+	name   = "Samples"
+	url    = "/samples/"
+	weight = 50
+
+[[menu.main]]
+	name   = "Tutorials"
+	url    = "/tutorials/"
+	weight = 60
 
 [blackfriday]
 	smartypants	= true

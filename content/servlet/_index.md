@@ -8,6 +8,13 @@ menu:
     parent: Servlet
 ---
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.graphql-java-kickstart/graphql-java-servlet.svg)](https://maven-badges.herokuapp.com/maven-central/com.graphql-java-kickstart/graphql-java-servlet)
+[![GitHub CI Workflow](https://github.com/graphql-java-kickstart/graphql-java-servlet/actions/workflows/snapshot.yml/badge.svg?branch=master)](https://github.com/graphql-java-kickstart/graphql-java-servlet/actions/workflows/snapshot.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=graphql-java-kickstart_graphql-java-servlet&metric=alert_status)](https://sonarcloud.io/dashboard?id=graphql-java-kickstart_graphql-java-servlet)
+[![GitHub contributors](https://img.shields.io/github/contributors/graphql-java-kickstart/graphql-java-servlet)](https://github.com/graphql-java-kickstart/graphql-java-servlet/graphs/contributors)
+[![Discuss on GitHub](https://img.shields.io/badge/GitHub-discuss-orange)](https://github.com/graphql-java-kickstart/graphql-java-servlet/discussions)
+
+
 Implementation of GraphQL Java Servlet including support for Relay.js, Apollo and OSGi out of the box.
 This project wraps the Java implementation of GraphQL provided by [GraphQL Java](https://www.graphql-java.com).
 The documentation on this site focuses around the usage of the servlet. Although some parts may dive deeper
@@ -15,7 +22,7 @@ into the aspects of GraphQL Java as well, make sure to look at the
 [GraphQL Java documentation](https://www.graphql-java.com/documentation/latest/) for more in depth details
 regarding GraphQL Java itself.
 
-We try to stay up to date with GraphQL Java as much as possible. The current version supports **GraphQL Java 14.0**.
+We try to stay up to date with GraphQL Java as much as possible. The current version supports **GraphQL Java 16.1**.
 
 This project requires at least Java 8.
 
@@ -37,7 +44,7 @@ repositories {
 Add the `graphql-java-servlet` dependency:
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-servlet:9.1.0'
+    compile 'com.graphql-java-kickstart:graphql-java-servlet:11.1.0'
 }
 ```
 
@@ -48,7 +55,7 @@ Add the `graphql-java-servlet` dependency:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-servlet</artifactId>
-  <version>9.1.0</version>
+  <version>11.1.0</version>
 </dependency>
 ```
 
