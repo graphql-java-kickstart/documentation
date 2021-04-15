@@ -10,7 +10,7 @@ menu:
     url: /spring-boot/directives/
 ---
 
-See [Schema Directives](https://www.graphql-java.com/documentation/v11/sdl-directives/)
+See [Schema Directives](https://www.graphql-java.com/documentation/v16/sdl-directives/)
 for a detailed explanation about directives including examples on how to define
 them in the SDL and to create the required classes.
 

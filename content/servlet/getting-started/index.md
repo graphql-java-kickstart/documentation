@@ -60,7 +60,7 @@ Add the `graphql-java-servlet` dependency to your `dependencies` section:
 
 Create a servlet class extending `SimpleGraphQLHttpServlet`. This is the basic "Hello world" example. It creates
 the GraphQL Query `{ hello }` that can be executed and which will respond with "world". It creates the GraphQL
-schema programmatically as shown in the [getting started example](https://www.graphql-java.com/documentation/v11/getting-started/) from `graphql-java`.
+schema programmatically as shown in the [getting started example](https://www.graphql-java.com/documentation/v16/getting-started/) from `graphql-java`.
 
 ```java
 @WebServlet(name = "HelloServlet", urlPatterns = {"graphql/*"}, loadOnStartup = 1)

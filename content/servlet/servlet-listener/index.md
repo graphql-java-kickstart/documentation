@@ -27,11 +27,11 @@ public class MyServlet extends GraphQLHttpServlet {
 ## Instrumentation
 
 The Servlet Listener listens to the servlet request, but not to the GraphQL query execution.
-If you want to listen to that you should use the [Instrumentation](https://www.graphql-java.com/documentation/v11/instrumentation/)
+If you want to listen to that you should use the [Instrumentation](https://www.graphql-java.com/documentation/v16/instrumentation/)
 provided by GraphQL Java. You can extend [SimpleInstrumentation](https://github.com/graphql-java/graphql-java/blob/master/src/main/java/graphql/execution/instrumentation/SimpleInstrumentation.java)
 to quickly create a custom implementation and use it when creating the `GraphQLConfiguration`.
 
-See the [GraphQL Java documentation](https://www.graphql-java.com/documentation/v11/instrumentation/)
+See the [GraphQL Java documentation](https://www.graphql-java.com/documentation/v16/instrumentation/)
 for details on creating custom instrumentations.
 
 ```java
