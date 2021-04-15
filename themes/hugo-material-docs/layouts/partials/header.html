@@ -7,7 +7,11 @@
       <a href="{{ .Site.BaseURL }}"
           title="{{ .Site.Title }}"
           class="md-header-nav__button md-logo">
-            <i class="md-icon">{{ with .Site.Params.logo.icon }}{{ . }}{{ else }}{{ "\uE80C" }}{{ end }}</i>
+        {{ with .Site.Params.logo.icon }}
+          <i class="md-icon">{{ . }}</i>
+        {{ else }}
+          <img src="{{ with .Site.Params.logo.image }}{{ . | absURL}}{{ end }}" width="25" height="25" />
+        {{ end }}
       </a>
     </div>
 

@@ -4,7 +4,7 @@
 
     <!-- Site title -->
     <label class="md-nav__title md-nav__title--site" for="__drawer">
-      <a href="{{ with $currentPage.Site.Params.repo_url }}{{ . }}{{ else }}{{ $currentPage.Site.BaseURL }}{{ end }}"
+      <a href="{{ $currentPage.Site.BaseURL }}"
           title="{{ $currentPage.Site.Title }}" class="md-nav__button md-logo">
         {{ with $currentPage.Site.Params.logo.icon }}
           <i class="md-icon">{{ . }}</i>
