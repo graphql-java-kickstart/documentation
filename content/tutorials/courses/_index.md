@@ -140,6 +140,6 @@ menu:
 {{< youtube id="I3NBPHA5coo" >}}
 {{< youtube-badges id="I3NBPHA5coo" playlistIndex="32" >}}
 
-## 33 – Subscription Authorization
+## 34 – Subscription Authorization
 {{< youtube id="Q8k-u1cDwic" >}}
 {{< youtube-badges id="Q8k-u1cDwic" playlistIndex="33" >}}
