@@ -49,8 +49,8 @@ menu:
 {{< youtube-badges id="bbfsak5i8Ok" playlistIndex="9" >}}
 
 ## 10 - DataFetcherResult - Returning data and errors
-{{< youtube id="zjT9Jy276" >}}
-{{< youtube-badges id="zjT9Jy276" playlistIndex="10" >}}
+{{< youtube id="zjT9Jy276-E" >}}
+{{< youtube-badges id="zjT9Jy276-E" playlistIndex="10" >}}
 
 ## 11 - Asynchronous Resolvers
 {{< youtube id="UOyIQCsVii4" >}}
@@ -86,56 +86,60 @@ menu:
 
 ## 20 - Listener
 {{< youtube id="nybkMHHyXUk" >}}
-{{< youtube-badges id="nybkMHHyXUk" playlistIndex="20" >}}
+{{< youtube-badges id="nybkMHHyXUk" playlistIndex="19" >}}
 
 ## 21 - Pagination (Edges, Nodes, Cursor)
 {{< youtube id="J9Nq0Fq7t_8" >}}
-{{< youtube-badges id="J9Nq0Fq7t_8" playlistIndex="21" >}}
+{{< youtube-badges id="J9Nq0Fq7t_8" playlistIndex="20" >}}
 
 ## 22 - Custom Context
 {{< youtube id="YsM2VSnWUcg" >}}
-{{< youtube-badges id="YsM2VSnWUcg" playlistIndex="22" >}}
+{{< youtube-badges id="YsM2VSnWUcg" playlistIndex="21" >}}
 
 ## 23 - DataLoader (N+1 problem)
 {{< youtube id="tbxskis_ny4" >}}
-{{< youtube-badges id="tbxskis_ny4" playlistIndex="23" >}}
+{{< youtube-badges id="tbxskis_ny4" playlistIndex="22" >}}
 
 ## 24 - Instrumentation (Request Logging)
 {{< youtube id="fPfApe80amg" >}}
-{{< youtube-badges id="fPfApe80amg" playlistIndex="24" >}}
+{{< youtube-badges id="fPfApe80amg" playlistIndex="23" >}}
 
 ## 25 - Request Tracing
 {{< youtube id="b5o6w-WA9iM" >}}
-{{< youtube-badges id="b5o6w-WA9iM" playlistIndex="25" >}}
+{{< youtube-badges id="b5o6w-WA9iM" playlistIndex="24" >}}
 
-#26 - Correlation ID (Thread propagation)
+## 26 - Correlation ID (Thread propagation)
 {{< youtube id="17AFe2eCRqc" >}}
-{{< youtube-badges id="17AFe2eCRqc" playlistIndex="26" >}}
+{{< youtube-badges id="17AFe2eCRqc" playlistIndex="25" >}}
 
-#27 - Integration Testing (GraphQLTestTemplate)
+## 27 - Integration Testing (GraphQLTestTemplate)
 {{< youtube id="bdfEjn6xZx0" >}}
-{{< youtube-badges id="bdfEjn6xZx0" playlistIndex="27" >}}
+{{< youtube-badges id="bdfEjn6xZx0" playlistIndex="26" >}}
 
-#28 - JS GraphQL IntelliJ Plugin
+## 28 - JS GraphQL IntelliJ Plugin
 {{< youtube id="hFHxOlThFR4" >}}
-{{< youtube-badges id="hFHxOlThFR4" playlistIndex="28" >}}
+{{< youtube-badges id="hFHxOlThFR4" playlistIndex="27" >}}
 
 ## 29 – JVM Profiling (VisualVM, JMeter)
 {{< youtube id="Bu-P0aZyOfE" >}}
-{{< youtube-badges id="Bu-P0aZyOfE" playlistIndex="29" >}}
+{{< youtube-badges id="Bu-P0aZyOfE" playlistIndex="28" >}}
 
 ## 30 – DataLoader Key Context
 {{< youtube id="nuRYRRAQh_Y" >}}
-{{< youtube-badges id="nuRYRRAQh_Y" playlistIndex="30" >}}
+{{< youtube-badges id="nuRYRRAQh_Y" playlistIndex="29" >}}
 
 ## 31 – Spring Security
 {{< youtube id="_T_0VB3AoV4" >}}
-{{< youtube-badges id="_T_0VB3AoV4" playlistIndex="31" >}}
+{{< youtube-badges id="_T_0VB3AoV4" playlistIndex="30" >}}
 
 ## 32 – Schema Directive Validation
 {{< youtube id="DN9XyUZ8yq8" >}}
-{{< youtube-badges id="DN9XyUZ8yq8" playlistIndex="32" >}}
+{{< youtube-badges id="DN9XyUZ8yq8" playlistIndex="31" >}}
 
 ## 33 – Subscription with Reactor
 {{< youtube id="I3NBPHA5coo" >}}
-{{< youtube-badges id="I3NBPHA5coo" playlistIndex="33" >}}
+{{< youtube-badges id="I3NBPHA5coo" playlistIndex="32" >}}
+
+## 33 – Subscription Authorization
+{{< youtube id="Q8k-u1cDwic" >}}
+{{< youtube-badges id="Q8k-u1cDwic" playlistIndex="33" >}}
