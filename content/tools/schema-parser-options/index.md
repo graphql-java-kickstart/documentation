@@ -14,7 +14,14 @@ Use `SchemaParserOptions.newBuilder()` to build an options object to pass to the
 
 Options:
 
-* `contextClass`: If you use a context object to execute your queries, let the parser know about it so that it can add it to data fetchers as an argument.
+* `contextClass`: If you use a custom context object to execute your queries, let the parser know about it so that it can add it to data fetchers as an argument.  
+  Make sure to also provide your context instance to the execution input:
+    ```java
+    var executionInput = ExecutionInput.newExecutionInput()
+        .query(query)
+        .variables(variables)
+        .graphQLContext(Map.of(CustomContext.class, context));
+    ```
 * `genericWrappers`: Allows defining your own generic classes that should be unwrapped when matching Java types to GraphQL types.  You must supply the class and the index (zero-indexed) of the wrapped generic type.  For example: If you want to unwrap type argument `T` of `Future<T>`, you must pass `Future.class` and `0`.
 
 * `useDefaultGenericWrappers`: Defaults to `true`.  Tells the parser whether or not to add it's own list of well-known generic wrappers, such as `Future` and `CompletableFuture`.
