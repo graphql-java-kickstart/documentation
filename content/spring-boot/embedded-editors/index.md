@@ -32,13 +32,13 @@ The following GraphQL Embedded Editors are bundled for convenience:
 
 ## Altair
 
-[Altair](https://github.com/imolorhe/altair) becomes accessible at the root /altair if the graphql.altair.enabled property is true.
+[Altair](https://github.com/imolorhe/altair) becomes accessible at the root `/altair` if the `graphql.altair.enabled` property is true.
 
-Note that GraphQL server must be available at /graphql/\* context to be discovered by Altair.
+Note that GraphQL server must be available at `/graphql/\*` context to be discovered by Altair.
 
 ### Configuration Parameters
 
-Available Spring Boot configuration parameters (either application.yml or application.properties):
+Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 
 ```yaml
 altair:
@@ -69,13 +69,13 @@ altair:
 
 ## GraphQL Playground
 
-[GraphQL Playground](https://github.com/prisma/graphql-playground) becomes accessible at root /playground (or as configured in graphql.playground.mapping) if the graphql.playground.enabled property is true.
+[GraphQL Playground](https://github.com/prisma/graphql-playground) becomes accessible at root `/playground` (or as configured in `graphql.playground.mapping`) if the `graphql.playground.enabled` property is true.
 
 It uses an embedded GraphQL Playground React, in accordance to the official guide, using the 'minimum HTML' approach.
 
 ### Configuration Parameters
 
-Available Spring Boot configuration parameters (either application.yml or application.properties):
+Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 
 ```yaml
 graphql.playground:
@@ -125,8 +125,7 @@ Note that GraphQL server must be available at `/graphql/*` context to be discove
 
 ### Configuration Parameters
 
-Available Spring Boot configuration parameters (either `application.yml`
-or `application.properties`):
+Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 
 ```yaml
 graphiql:
@@ -167,9 +166,9 @@ the `graphiql.headers` group.
 
 ## GraphQL Voyager
 
-[GraphQL Voyager](https://github.com/APIs-guru/graphql-voyager) becomes accessible at root /voyager (or as configured in voyager.mapping) if the graphql.voyager.enabled property is true.
+[GraphQL Voyager](https://github.com/APIs-guru/graphql-voyager) becomes accessible at root `/voyager` (or as configured in voyager.mapping) if the `graphql.voyager.enabled` property is true.
 
-Available Spring Boot configuration parameters (either application.yml or application.properties):
+Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 
 ### Configuration Parameters
 
