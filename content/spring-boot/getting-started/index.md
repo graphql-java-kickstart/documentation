@@ -11,8 +11,8 @@ menu:
 
 This project requires at least the following version:
 
-* Java 8
-* Spring Boot > 2.x.x (`spring-boot-starter-web`)
+- Java 8
+- Spring Boot > 2.x.x (`spring-boot-starter-web`)
 
 ## Quick start
 
@@ -21,6 +21,7 @@ To add `graphql-spring-boot` to your project and get started quickly, do the fol
 ### Build with Gradle
 
 Make sure `mavenCentral` is amongst your repositories:
+
 ```gradle
 repositories {
     mavenCentral()
@@ -28,43 +29,32 @@ repositories {
 ```
 
 Add the respective starter dependencies you want to use:
+
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
-    compile 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0'
-    compile 'com.graphql-java-kickstart:voyager-spring-boot-starter:11.0.0'
-    testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:11.0.0'
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:12.0.0'
+
+    // testing facilities
+    testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:12.0.0'
 }
 ```
 
 ### Build with Maven
 
 Add the respective starter dependencies you want to use:
+
 ```xml
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-spring-boot-starter</artifactId>
-  <version>11.0.0</version>
+  <version>12.0.0</version>
 </dependency>
-<dependency>
-  <groupId>com.graphql-java-kickstart</groupId>
-  <artifactId>graphiql-spring-boot-starter</artifactId>
-  <version>11.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.graphql-java-kickstart</groupId>
-  <artifactId>playground-spring-boot-starter</artifactId>
-  <version>11.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.graphql-java-kickstart</groupId>
-  <artifactId>voyager-spring-boot-starter</artifactId>
-  <version>11.0.0</version>
-</dependency>
+
+<!-- testing facilities -->
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-spring-boot-starter-test</artifactId>
-  <version>11.0.0</version>
+  <version>12.0.0</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -77,6 +67,7 @@ Snapshot versions of the current `master` branch are available on JFrog. Check t
 ### Build with Gradle
 
 Add the Snapshot repository:
+
 ```gradle
 repositories {
     mavenCentral()
@@ -87,6 +78,7 @@ repositories {
 ### Build with Maven
 
 Add the Snapshot repository:
+
 ```xml
 <repositories>
   <repository>
