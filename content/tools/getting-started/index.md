@@ -23,6 +23,7 @@ To add `graphql-java-tools` to your project and get started quickly, do the foll
 ### Build with Gradle
 
 Make sure `mavenCentral` is amongst your repositories:
+
 ```gradle
 repositories {
     mavenCentral()
@@ -30,20 +31,22 @@ repositories {
 ```
 
 Add the `graphql-java-tools` dependency:
+
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-tools:11.0.0'
+    compile 'com.graphql-java-kickstart:graphql-java-tools:12.0.1'
 }
 ```
 
 ### Build with Maven
 
 Add the `graphql-java-tools` dependency:
+
 ```xml
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-tools</artifactId>
-  <version>11.0.0</version>
+  <version>12.0.1</version>
 </dependency>
 ```
 
@@ -55,6 +58,7 @@ Snapshot versions of the current `master` branch are available on JFrog. Check t
 ### Build with Gradle
 
 Add the Snapshot repository:
+
 ```gradle
 repositories {
     mavenCentral()
@@ -65,6 +69,7 @@ repositories {
 ### Build with Maven
 
 Add the Snapshot repository:
+
 ```xml
 <repositories>
   <repository>

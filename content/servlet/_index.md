@@ -14,7 +14,6 @@ menu:
 [![GitHub contributors](https://img.shields.io/github/contributors/graphql-java-kickstart/graphql-java-servlet)](https://github.com/graphql-java-kickstart/graphql-java-servlet/graphs/contributors)
 [![Discuss on GitHub](https://img.shields.io/badge/GitHub-discuss-orange)](https://github.com/graphql-java-kickstart/graphql-java-servlet/discussions)
 
-
 Implementation of GraphQL Java Servlet including support for Relay.js, Apollo and OSGi out of the box.
 This project wraps the Java implementation of GraphQL provided by [GraphQL Java](https://www.graphql-java.com).
 The documentation on this site focuses around the usage of the servlet. Although some parts may dive deeper
@@ -22,7 +21,7 @@ into the aspects of GraphQL Java as well, make sure to look at the
 [GraphQL Java documentation](https://www.graphql-java.com/documentation/latest/) for more in depth details
 regarding GraphQL Java itself.
 
-We try to stay up to date with GraphQL Java as much as possible. The current version supports **GraphQL Java 16.1**.
+We try to stay up to date with GraphQL Java as much as possible. The current version supports **GraphQL Java 17.3**.
 
 This project requires at least Java 8.
 
@@ -35,6 +34,7 @@ To add `graphql-java-servlet` to your project and get started quickly, do the fo
 ### Build with Gradle
 
 Make sure `mavenCentral` is amongst your repositories:
+
 ```gradle
 repositories {
     mavenCentral()
@@ -42,20 +42,22 @@ repositories {
 ```
 
 Add the `graphql-java-servlet` dependency:
+
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-servlet:11.1.0'
+    compile 'com.graphql-java-kickstart:graphql-java-servlet:12.0.0'
 }
 ```
 
 ### Build with Maven
 
 Add the `graphql-java-servlet` dependency:
+
 ```xml
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-servlet</artifactId>
-  <version>11.1.0</version>
+  <version>12.0.0</version>
 </dependency>
 ```
 
@@ -73,6 +75,7 @@ Snapshot versions of the current `master` branch are availble on JFrog. Check th
 ### Build with Gradle
 
 Add the Snapshot repository:
+
 ```gradle
 repositories {
     mavenCentral()
@@ -83,6 +86,7 @@ repositories {
 ### Build with Maven
 
 Add the Snapshot repository:
+
 ```xml
 <repositories>
   <repository>
@@ -98,27 +102,29 @@ Add the Snapshot repository:
 ```
 
 ## Usage
- 
+
 The servlet supports the following request formats:
- * GET request to `../schema.json`: Get the result of an introspection query.
- * GET request with query parameters (query only, no mutation):
-     * query
-     * operationName (optional)
-     * variables (optional)
- * POST body JSON object with fields:
-     * query
-     * operationName (optional)
-     * variables (optional)
- * POST multipart part named "graphql" containing JSON object with fields:
-     * query
-     * operationName (optional)
-     * variables (optional)
- * POST multipart parts named "query", "operationName" (optional), and "variables" (optional)
- * POST with Content Type "application/graphql" will treat the HTTP POST body contents as the GraphQL query string
- 
+
+- GET request to `../schema.json`: Get the result of an introspection query.
+- GET request with query parameters (query only, no mutation):
+  - query
+  - operationName (optional)
+  - variables (optional)
+- POST body JSON object with fields:
+  - query
+  - operationName (optional)
+  - variables (optional)
+- POST multipart part named "graphql" containing JSON object with fields:
+  - query
+  - operationName (optional)
+  - variables (optional)
+- POST multipart parts named "query", "operationName" (optional), and "variables" (optional)
+- POST with Content Type "application/graphql" will treat the HTTP POST body contents as the GraphQL query string
+
 ## Spring Framework support
 
 To use the servlet with Spring Framework, either use the [Spring Boot starter](https://www.graphql-java-kickstart.com/spring-boot/) or simply define a `ServletRegistrationBean` in a web app:
+
 ```java
 @Bean
 ServletRegistrationBean graphQLServletRegistrationBean(GraphQLSchema schema, ExecutionStrategy executionStrategy, List<GraphQLOperationListener> operationListeners) {
@@ -128,7 +134,7 @@ ServletRegistrationBean graphQLServletRegistrationBean(GraphQLSchema schema, Exe
 
 ## GraphQL Subscription support
 
-Subscriptions over WebSocket are fully supported within Spring Boot, but may require some work if you're using another 
-framework. There is an example [here](https://github.com/graphql-java-kickstart/samples/tree/master/subscription-with-authentication). 
-Internally, [JSR 356](https://www.oracle.com/technical-resources/articles/java/jsr356.html) is used for WebSocket 
+Subscriptions over WebSocket are fully supported within Spring Boot, but may require some work if you're using another
+framework. There is an example [here](https://github.com/graphql-java-kickstart/samples/tree/master/subscription-with-authentication).
+Internally, [JSR 356](https://www.oracle.com/technical-resources/articles/java/jsr356.html) is used for WebSocket
 support. The endpoint is [GraphQLWebSocketServlet](https://github.com/graphql-java-kickstart/graphql-java-servlet/blob/38af304a9da1a57ac7475098b7fccec1b063646b/graphql-java-servlet/src/main/java/graphql/kickstart/servlet/GraphQLWebsocketServlet.java).
