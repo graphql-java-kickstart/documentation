@@ -41,30 +41,31 @@ Note that GraphQL server must be available at `/graphql/\*` context to be discov
 Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 
 ```yaml
-altair:
-  enabled: true
-  mapping: /altair
-  subscriptions:
-    timeout: 30
-    reconnect: false
-  static:
-    base-path: /
-  page-title: Altair
-  cdn:
-    enabled: false
-    version: 4.0.2
-  options:
-    endpoint-url: /graphql
-    subscriptions-endpoint: /subscriptions
-    initial-settings:
-      theme: dracula
-    initial-headers:
-      Authorization: "Bearer <your-token>"
-  resources:
-    initial-query: defaultQuery.graphql
-    initial-variables: variables.graphql
-    initial-pre-request-script: pre-request.graphql
-    initial-post-request-script: post-request.graphql
+graphql:
+  altair:
+    enabled: true
+    mapping: /altair
+    subscriptions:
+      timeout: 30
+      reconnect: false
+    static:
+      base-path: /
+    page-title: Altair
+    cdn:
+      enabled: false
+      version: 4.0.2
+    options:
+      endpoint-url: /graphql
+      subscriptions-endpoint: /subscriptions
+      initial-settings:
+        theme: dracula
+      initial-headers:
+        Authorization: "Bearer <your-token>"
+    resources:
+      initial-query: defaultQuery.graphql
+      initial-variables: variables.graphql
+      initial-pre-request-script: pre-request.graphql
+      initial-post-request-script: post-request.graphql
 ```
 
 ## GraphQL Playground
@@ -78,48 +79,49 @@ It uses an embedded GraphQL Playground React, in accordance to the official guid
 Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 
 ```yaml
-graphql.playground:
-  mapping: /playground
-  endpoint: /graphql
-  subscriptionEndpoint: /subscriptions
-  staticPath.base: my-playground-resources-folder
-  enabled: true
-  pageTitle: Playground
-  cdn:
-    enabled: false
-    version: latest
-  settings:
-    editor.cursorShape: line
-    editor.fontFamily: "'Source Code Pro', 'Consolas', 'Inconsolata', 'Droid Sans Mono', 'Monaco', monospace"
-    editor.fontSize: 14
-    editor.reuseHeaders: true
-    editor.theme: dark
-    general.betaUpdates: false
-    prettier.printWidth: 80
-    prettier.tabWidth: 2
-    prettier.useTabs: false
-    request.credentials: omit
-    schema.polling.enable: true
-    schema.polling.endpointFilter: "*localhost*"
-    schema.polling.interval: 2000
-    schema.disableComments: true
-    tracing.hideTracingResponse: true
-  headers:
-    headerFor: AllTabs
-  tabs:
-    - name: Example Tab
-      query: classpath:exampleQuery.graphql
-      headers:
-        SomeHeader: Some value
-      variables: classpath:variables.json
-      responses:
-        - classpath:exampleResponse1.json
-        - classpath:exampleResponse2.json
+graphql:
+  playground:
+    mapping: /playground
+    endpoint: /graphql
+    subscriptionEndpoint: /subscriptions
+    staticPath.base: my-playground-resources-folder
+    enabled: true
+    pageTitle: Playground
+    cdn:
+      enabled: false
+      version: latest
+    settings:
+      editor.cursorShape: line
+      editor.fontFamily: "'Source Code Pro', 'Consolas', 'Inconsolata', 'Droid Sans Mono', 'Monaco', monospace"
+      editor.fontSize: 14
+      editor.reuseHeaders: true
+      editor.theme: dark
+      general.betaUpdates: false
+      prettier.printWidth: 80
+      prettier.tabWidth: 2
+      prettier.useTabs: false
+      request.credentials: omit
+      schema.polling.enable: true
+      schema.polling.endpointFilter: "*localhost*"
+      schema.polling.interval: 2000
+      schema.disableComments: true
+      tracing.hideTracingResponse: true
+    headers:
+      headerFor: AllTabs
+    tabs:
+      - name: Example Tab
+        query: classpath:exampleQuery.graphql
+        headers:
+          SomeHeader: Some value
+        variables: classpath:variables.json
+        responses:
+          - classpath:exampleResponse1.json
+          - classpath:exampleResponse2.json
 ```
 
 ## GraphiQL
 
-[GraphiQL](https://github.com/graphql/graphiql) becomes accessible at the root `/graphiql` if `graphiql.enabled` application property is set to `true`.
+[GraphiQL](https://github.com/graphql/graphiql) becomes accessible at the root `/graphiql` if `graphql.graphiql.enabled` application property is set to `true`.
 
 Note that GraphQL server must be available at `/graphql/*` context to be discovered by Graph*i*QL.
 
@@ -128,29 +130,30 @@ Note that GraphQL server must be available at `/graphql/*` context to be discove
 Available Spring Boot configuration parameters (either `application.yml` or `application.properties`):
 
 ```yaml
-graphiql:
-  mapping: /graphiql
-  endpoint:
-    graphql: /graphql
-    subscriptions: /subscriptions
-  subscriptions:
-    timeout: 30
-    reconnect: false
-  basePath: /
-  enabled: true
-  pageTitle: GraphiQL
-  cdn:
-    enabled: false
-    version: latest
-  props:
-    resources:
-      query: query.graphql
-      defaultQuery: defaultQuery.graphql
-      variables: variables.graphql
-    variables:
-      editorTheme: "solarized light"
-  headers:
-    Authorization: "Bearer <your-token>"
+graphql:
+  graphiql:
+    mapping: /graphiql
+    endpoint:
+      graphql: /graphql
+      subscriptions: /subscriptions
+    subscriptions:
+      timeout: 30
+      reconnect: false
+    basePath: /
+    enabled: true
+    pageTitle: GraphiQL
+    cdn:
+      enabled: false
+      version: latest
+    props:
+      resources:
+        query: query.graphql
+        defaultQuery: defaultQuery.graphql
+        variables: variables.graphql
+      variables:
+        editorTheme: "solarized light"
+    headers:
+      Authorization: "Bearer <your-token>"
 ```
 
 By default GraphiQL is served from within the package. This can be configured to be served from CDN
