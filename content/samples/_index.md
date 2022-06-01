@@ -17,4 +17,4 @@ You can find a collection of samples projects within the [graphql-java-kickstart
 
 ## Federation Example
 
-An example of using GraphQL Java Kickstart with Apollo Federation is available at [setchy/spring-boot-federation-example](https://github.com/setchy/spring-boot-federation-example)
+An example of using GraphQL Java Kickstart with Apollo Federation is available at [setchy/graphql-java-kickstart-federation-example](https://github.com/setchy/graphql-java-kickstart-federation-example)
