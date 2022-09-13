@@ -250,7 +250,7 @@ enum Episode {
 ```
 ## GraphQL Deprecations
 
-GraphQL field/enum deprecations can be provided by the `@deprecated(reason: String)` directive, and are added to the generated schema.
+GraphQL deprecations on output fields, enums, arguments, directive arguments, and input fields can be provided by the `@deprecated(reason: String)` directive, and are added to the generated schema.
 You can either supply a **reason** argument with a string value or not supply one and receive a "No longer supported" message when introspected:
 
 ```graphql
