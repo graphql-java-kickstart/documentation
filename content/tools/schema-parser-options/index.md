@@ -46,7 +46,7 @@ Options:
       }
     }
     ```
-    You will now have the code find two different return types for getBars() and application will not start with the error ```Caused by: com.coxautodev.graphql.tools.SchemaClassScannerError: Two different classes used for type```
+    You will now have the code find two different return types for getBars() and application will not start with the error ```Caused by: graphql.kickstart.tools.SchemaClassScannerError: Two different classes used for type```
     If this property is true it will ignore the legacy version.
 * `addProxyHandler`: If your runtime resolver classes are auto-generated proxies of some kind you can provide a handler to help the parser find the real resolvers behind them. Four proxy handlers are provided by default for these libraries:
     * Javassist
