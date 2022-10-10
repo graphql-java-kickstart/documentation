@@ -32,10 +32,10 @@ Add the respective starter dependencies you want to use:
 
 ```gradle
 dependencies {
-    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:13.0.0'
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:14.0.0'
 
     // testing facilities
-    testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:13.0.0'
+    testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:14.0.0'
 }
 ```
 
@@ -47,14 +47,14 @@ Add the respective starter dependencies you want to use:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-spring-boot-starter</artifactId>
-  <version>13.0.0</version>
+  <version>14.0.0</version>
 </dependency>
 
 <!-- testing facilities -->
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-spring-boot-starter-test</artifactId>
-  <version>13.0.0</version>
+  <version>14.0.0</version>
   <scope>test</scope>
 </dependency>
 ```
