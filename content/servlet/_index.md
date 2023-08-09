@@ -21,7 +21,7 @@ into the aspects of GraphQL Java as well, make sure to look at the
 [GraphQL Java documentation](https://www.graphql-java.com/documentation/latest/) for more in depth details
 regarding GraphQL Java itself.
 
-We try to stay up to date with GraphQL Java as much as possible. The current version supports **GraphQL Java 17.3**.
+We try to stay up to date with GraphQL Java as much as possible. The current version supports **GraphQL Java 19.3**.
 
 This project requires at least Java 8.
 
@@ -45,7 +45,7 @@ Add the `graphql-java-servlet` dependency:
 
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-servlet:14.0.0'
+    compile 'com.graphql-java-kickstart:graphql-java-servlet:15.0.0'
 }
 ```
 
@@ -57,7 +57,7 @@ Add the `graphql-java-servlet` dependency:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-servlet</artifactId>
-  <version>14.0.0</version>
+  <version>15.0.0</version>
 </dependency>
 ```
 

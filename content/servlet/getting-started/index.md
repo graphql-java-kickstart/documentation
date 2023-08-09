@@ -18,8 +18,7 @@ Gradle and Maven is included here.
 ### Create a Gradle build file
 
 Make sure `mavenCentral` is among your repositories. The example build script below uses `org.gretty` to provide
-a webserver to show a working example. You need to add the `jcenter` repository as well to be able to pull in all
-dependencies required by `gretty`.
+a webserver to show a working example.
 
 ```gradle
 plugins {
@@ -33,7 +32,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-servlet:14.0.0'
+    compile 'com.graphql-java-kickstart:graphql-java-servlet:15.0.0'
 }
 ```
 
@@ -52,7 +51,7 @@ Add the `graphql-java-servlet` dependency to your `dependencies` section:
 <dependency>
   <groupId>com.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-servlet</artifactId>
-  <version>14.0.0</version>
+  <version>15.0.0</version>
 </dependency>
 ```
 
@@ -108,16 +107,19 @@ You can now send a GraphQL query to your local servlet, for example using [Insom
 In this case the URL to post the GraphQL query to is [http://localhost:8080/graphql-java-servlet-hello-world/graphql](http://localhost:8080/graphql-java-servlet-hello-world/graphql).
 
 The following GraphQL query is what the example implementation supports:
+
 ```gradle
 query {
     hello
 }
 ```
+
 Our Hello Servlet will respond with:
+
 ```json
 {
-	"data": {
-		"hello": "world"
-	}
+  "data": {
+    "hello": "world"
+  }
 }
 ```
