@@ -23,7 +23,7 @@ regarding GraphQL Java itself.
 
 We try to stay up to date with GraphQL Java as much as possible. The current version supports **GraphQL Java 19.3**.
 
-This project requires at least Java 8.
+This project requires at least Java 17.
 
 ## Quick start
 
