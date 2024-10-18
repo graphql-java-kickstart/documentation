@@ -123,7 +123,7 @@ The servlet supports the following request formats:
 
 ## Spring Framework support
 
-To use the servlet with Spring Framework, either use the [Spring Boot starter](https://www.graphql-java-kickstart.com/spring-boot/) or simply define a `ServletRegistrationBean` in a web app:
+To use the servlet with Spring Framework, either use the [Spring Boot starter](https://graphql-java-kickstart.github.io/spring-boot/) or simply define a `ServletRegistrationBean` in a web app:
 
 ```java
 @Bean

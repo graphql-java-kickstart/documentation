@@ -1,4 +1,4 @@
-# [GraphQL Java Kickstart Documentation](https://www.graphql-java-kickstart.com/)
+# [GraphQL Java Kickstart Documentation](https://graphql-java-kickstart.github.io/)
 
 
 [![GitHub CI Workflow](https://github.com/graphql-java-kickstart/documentation/actions/workflows/publish.yml/badge.svg?branch=master)](https://github.com/graphql-java-kickstart/documentation/actions/workflows/publish.yml?query=branch%3Amaster)

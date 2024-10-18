@@ -30,4 +30,3 @@ jobs:
           external_repository: graphql-java-kickstart/graphql-java-kickstart.github.io
           publish_branch: master
           publish_dir: ./public
-          cname: www.graphql-java-kickstart.com
