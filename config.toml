@@ -1,4 +1,4 @@
-baseurl = "https://www.graphql-java-kickstart.com/"
+baseurl = "https://graphql-java-kickstart.github.io/"
 languageCode = "en-us"
 title = "GraphQL Java Kickstart"
 theme = "hugo-material-docs"
