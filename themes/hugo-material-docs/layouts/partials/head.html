@@ -5,12 +5,12 @@
   <!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
   <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 
-  <head {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
+  <head {{ with .Site.Language.Locale }}lang="{{ . }}"{{ end }}>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>{{ .Title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
-    {{ .Hugo.Generator }}
+    {{ hugo.Generator }}
 
     {{ with .Site.Params.description }}
     <meta name="description" content="{{ . }}">
@@ -81,9 +81,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.5.0/fuse.min.js"></script>
     <script src="{{ "javascripts/modernizr.js" | absURL }}"></script>
 
-    {{ with .RSSLink }}
-    <link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
-    <link href="{{ . }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    {{ with .OutputFormats.Get "rss" }}
+    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
     {{ end }}
 
   </head>

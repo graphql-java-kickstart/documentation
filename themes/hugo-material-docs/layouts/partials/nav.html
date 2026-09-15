@@ -18,7 +18,7 @@
     <!-- Render item list -->
     <ul class="md-nav__list" data-md-scrollfix>
 
-      {{ if isset $currentPage.Params.menu "main" }}
+      {{ if $currentPage.Params.menu.main }}
         {{ range .Site.Menus.main.ByWeight }}
           {{ if eq $currentPage.Params.menu.main.parent .Name }}
 

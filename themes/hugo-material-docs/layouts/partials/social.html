@@ -24,16 +24,16 @@
 <div class="md-footer-social">
   <link rel="stylesheet" type="text/css"
       href='{{ "fonts/font-awesome.css" | absURL }}' />
-  {{ with .Site.Social.globe }}
+  {{ with .Site.Params.social.globe }}
     <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-globe"></a>
   {{ end }}
-  {{ with .Site.Social.github }}
+  {{ with .Site.Params.social.github }}
     <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-github-alt"></a>
   {{ end }}
-  {{ with .Site.Social.twitter }}
+  {{ with .Site.Params.social.twitter }}
     <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-twitter"></a>
   {{ end }}
-  {{ with .Site.Social.linkedin }}
+  {{ with .Site.Params.social.linkedin }}
     <a href="{{ . }}" target="_blank" class="md-footer-social__link fa fa-linkedin"></a>
   {{ end }}
 </div>

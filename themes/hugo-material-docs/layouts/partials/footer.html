@@ -1,14 +1,14 @@
 <!-- Application footer -->
 <footer class="md-footer">
   {{ if .IsPage }}
-    {{ if .NextPage | or .PrevPage }}
+    {{ if .Next | or .Prev }}
       <div class="md-footer-nav">
           <nav class="md-footer-nav__inner md-grid">
 
           <!-- Link to previous page -->
-          {{ if .NextPage }}
-            <a href="{{ .NextPage.Permalink }}"
-                title="{{ .NextPage.Title }}"
+          {{ if .Next }}
+            <a href="{{ .Next.Permalink }}"
+                title="{{ .Next.Title }}"
                 class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                 rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -21,16 +21,16 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  {{ .NextPage.Title }}
+                  {{ .Next.Title }}
                 </span>
               </div>
             </a>
           {{ end }}
 
           <!-- Link to next page -->
-          {{ if .PrevPage }}
-            <a href="{{ .PrevPage.Permalink }}"
-                title="{{ .PrevPage.Title }}"
+          {{ if .Prev }}
+            <a href="{{ .Prev.Permalink }}"
+                title="{{ .Prev.Title }}"
                 class="md-flex md-footer-nav__link md-footer-nav__link--next"
                 rel="next">
               <div class="md-flex__cell md-flex__cell--stretch
@@ -40,7 +40,7 @@
                     Next
                   </span>
                   <span style="position: absolute; right: 0; padding: 0 2rem;">
-                  {{ .PrevPage.Title }}
+                  {{ .Prev.Title }}
                   </span>
                 </span>
               </div>

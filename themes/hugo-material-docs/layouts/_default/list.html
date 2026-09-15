@@ -1,5 +1,5 @@
 {{ define "main" }}
-	<h1>{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
+	<h1>{{ .Title }} {{ if .Draft }} (Draft){{ end }}</h1>
 
 	{{ .Content }}
 {{ end }}

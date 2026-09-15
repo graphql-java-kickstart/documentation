@@ -1,5 +1,5 @@
 baseurl = "https://graphql-java-kickstart.github.io/"
-languageCode = "en-us"
+locale = "en-us"
 title = "GraphQL Java Kickstart"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
@@ -77,7 +77,7 @@ googleAnalytics = ""
 		menu = "Tutorials"
 
 
-[social]
+[params.social]
 	twitter = ""
 	github  = "https://github.com/graphql-java-kickstart"
 	email   = ""
