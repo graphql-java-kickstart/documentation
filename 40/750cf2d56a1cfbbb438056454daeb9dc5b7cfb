@@ -1,0 +1,46 @@
+themes/hugo-material-docs/layouts/_default/list.html
+  s_5acaa0a635b9e9::t_05c65437c2cb39 2
+themes/hugo-material-docs/layouts/partials/drawer.html
+  s_5acaa0a635b9e9::t_096af542746c1f 50,58,66
+themes/hugo-material-docs/layouts/partials/head.html
+  s_5acaa0a635b9e9::t_8ab79b54d73205 13
+  h_ac004aadb63da9 84-86
+  s_5acaa0a635b9e9::t_096af542746c1f 8
+themes/hugo-material-docs/layouts/partials/footer.html
+  s_5acaa0a635b9e9::t_096af542746c1f 4,9-11,24,31-33,43
+themes/hugo-material-docs/layouts/index.html
+  s_5acaa0a635b9e9::t_05c65437c2cb39 3
+themes/hugo-material-docs/layouts/_default/single.html
+  s_5acaa0a635b9e9::t_05c65437c2cb39 3
+config.toml
+  s_5acaa0a635b9e9::t_096af542746c1f 2,80
+themes/hugo-material-docs/layouts/partials/footer_js.html
+  s_5acaa0a635b9e9::t_4149db4cdbbf2e 16
+themes/hugo-material-docs/layouts/partials/social.html
+  s_5acaa0a635b9e9::t_096af542746c1f 27,30,33,36
+themes/hugo-material-docs/layouts/partials/header.html
+  s_5acaa0a635b9e9::t_dc8ac5b5559da0 50
+themes/hugo-material-docs/layouts/partials/nav.html
+  s_5acaa0a635b9e9::t_dc8ac5b5559da0 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "40750cf2d56a1cfbbb438056454daeb9dc5b7cfb",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  },
+  "sessions": {
+    "s_5acaa0a635b9e9": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "4edb6581-6bbd-42f0-9a0d-5ae224851d9a",
+        "model": "copilot/gpt-5.6-sol"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
