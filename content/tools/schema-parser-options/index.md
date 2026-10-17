@@ -23,8 +23,10 @@ Options:
         .graphQLContext(Map.of(CustomContext.class, context));
     ```
 * `genericWrappers`: Allows defining your own generic classes that should be unwrapped when matching Java types to GraphQL types.  You must supply the class and the index (zero-indexed) of the wrapped generic type.  For example: If you want to unwrap type argument `T` of `Future<T>`, you must pass `Future.class` and `0`.
+  Use `GenericWrapper.withTransformer` to also convert the value at runtime. If the transformer returns `null`, the field is `null`.
 
 * `useDefaultGenericWrappers`: Defaults to `true`.  Tells the parser whether or not to add it's own list of well-known generic wrappers, such as `Future` and `CompletableFuture`.
+  graphql-java only waits on a `CompletionStage`, so a method declared to return a `Future` has to return one, such as a `CompletableFuture`. Any other future fails the field with an error, unless a generic wrapper transformer converts it.
 * `allowUnimplementedResolvers`: Defaults to `false`.  Allows a schema to be created even if not all GraphQL fields have resolvers.  Intended only for development, it will log a warning to remind you to turn it off for production.  Any unimplemented resolvers will throw errors when queried.
 * `missingResolverDataFetcher`: Allows you to provide custom behavior for missing GraphQL fields.
 * `inputArgumentOptionalDetectOmission`: Defaults to `false`. By default, the parser will treat omitted or null method input arguments as `Optional.empty` in resolvers. If you prefer, you can disable this behavior.
@@ -56,5 +58,13 @@ Options:
 * `introspectionEnabled`: Defaults to `true`. When set to `false` this option will disable schema introspection via `NO_INTROSPECTION_FIELD_VISIBILITY`. See [Field Visibility](https://www.graphql-java.com/documentation/master/fieldvisibility/).
 * `fieldVisibility`: Provide a graphql field visibility implementation. This option overrides `introspectionEnabled` when used. See [Field Visibility](https://www.graphql-java.com/documentation/master/fieldvisibility/).
 * `coroutineContext` / `coroutineContextProvider`: Provide a kotlin coroutine context to be used with suspend functions of resolvers.
+  A suspend function runs on the calling thread until it first suspends, and continues on this context after that, so wrap blocking calls in `withContext(Dispatchers.IO)`.
+  To run them in your own `CoroutineScope`, e.g. to cancel them with the request, put it in the execution input's context:
+    ```java
+    var executionInput = ExecutionInput.newExecutionInput()
+        .query(query)
+        .graphQLContext(Map.of(CoroutineScope.class, scope));
+    ```
 * `typeDefinitionFactory`: See [Type Definition Factory]({{< relref "/tools/type-definition-factory/index.md" >}}).
 * `includeUnusedTypes`: Defaults to `false`. By default, the parser will ignore unused type definitions in the schema. Enable this option to include them regardless.
+* `allowUndeclaredDirectives`: Defaults to `false`. Allows applying directives that aren't declared in the schema, e.g. the Apollo Federation directives imported through `@link`. They're only added as applied directives, with argument types guessed from their values. Directives with enum or input object arguments still have to be declared.

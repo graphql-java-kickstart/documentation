@@ -34,7 +34,7 @@ Add the `graphql-java-tools` dependency:
 
 ```gradle
 dependencies {
-    compile 'com.graphql-java-kickstart:graphql-java-tools:13.0.3'
+    compile 'io.github.graphql-java-kickstart:graphql-java-tools:14.2.0'
 }
 ```
 
@@ -44,9 +44,9 @@ Add the `graphql-java-tools` dependency:
 
 ```xml
 <dependency>
-  <groupId>com.graphql-java-kickstart</groupId>
+  <groupId>io.github.graphql-java-kickstart</groupId>
   <artifactId>graphql-java-tools</artifactId>
-  <version>13.0.3</version>
+  <version>14.2.0</version>
 </dependency>
 ```
 

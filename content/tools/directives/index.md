@@ -67,6 +67,12 @@ SchemaParser.newParser()
   .makeExecutableSchema();
 ```
 
+If several wirings apply to the same element, each one gets the element returned by the previous one.
+
+Arguments the SDL leaves out are filled in with their default from the directive definition, so the wiring sees the default instead of `null`.
+
+An enum that's only used by directive definitions doesn't need a Java class. Its values are then passed to the wiring as `String`s. Add the enum to the [type dictionary]({{< relref "/tools/schema-definition/index.md#type-dictionary" >}}) to get the enum constants instead.
+
 ## Supported locations
 Support for directives is currently limited to the following locations:
 
@@ -83,3 +89,5 @@ Support for directives is currently limited to the following locations:
 Meaning directives for the following locations are currently not yet supported:
 
 * `SCALAR`
+
+Directives on `schema` and `extend schema` don't run a wiring, but they're added to the schema's applied directives. Like everywhere else, they have to be declared, unless `allowUndeclaredDirectives` is set in the [schema parser options]({{< relref "/tools/schema-parser-options/index.md" >}}).
