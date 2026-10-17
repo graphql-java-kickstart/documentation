@@ -34,7 +34,7 @@ Add the `graphql-java-tools` dependency:
 
 ```gradle
 dependencies {
-    compile 'io.github.graphql-java-kickstart:graphql-java-tools:14.2.0'
+    implementation 'io.github.graphql-java-kickstart:graphql-java-tools:14.2.0'
 }
 ```
 
@@ -52,7 +52,7 @@ Add the `graphql-java-tools` dependency:
 
 ## Using the latest development build
 
-Snapshot versions of the current `master` branch are available on JFrog. Check the next snapshot version on
+Snapshot versions of the current `master` branch are available on the Maven Central snapshot repository. Check the next snapshot version on
 [Github](https://github.com/graphql-java-kickstart/graphql-java-tools/blob/master/pom.xml#L7)
 
 ### Build with Gradle
@@ -62,7 +62,7 @@ Add the Snapshot repository:
 ```gradle
 repositories {
     mavenCentral()
-    maven { url "https://oss.jfrog.org/artifactory/oss-snapshot-local" }
+    maven { url = 'https://central.sonatype.com/repository/maven-snapshots/' }
 }
 ```
 
@@ -73,9 +73,12 @@ Add the Snapshot repository:
 ```xml
 <repositories>
   <repository>
-    <id>oss-snapshot-local</id>
-    <name>jfrog</name>
-    <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+    <id>central-portal-snapshots</id>
+    <name>Central Portal Snapshots</name>
+    <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+    <releases>
+      <enabled>false</enabled>
+    </releases>
     <snapshots>
       <enabled>true</enabled>
       <updatePolicy>always</updatePolicy>
