@@ -213,6 +213,15 @@ SchemaParser.newParser()
     .dictionary("Book", BookClassWithIncorrectName.class)
 ```
 
+If the class of a union or interface is a Kotlin sealed class or interface, or a Java sealed type, its members and implementors don't need to be added. GraphQL Java Tools uses the subclass with the same simple name as the GraphQL type:
+```kotlin
+// union Pet = NormalPet | WeirdPet
+sealed class Pet {
+    data class NormalPet(val name: String) : Pet()
+    data class WeirdPet(val classification: String) : Pet()
+}
+```
+
 ## Making the graphql-java Schema Instance
 
 After you've passed all relevant schema files/class to the parser, call `.build()` and `.makeExecutableSchema()` to get a graphql-java `GraphQLSchema`:
