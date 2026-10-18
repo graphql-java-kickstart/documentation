@@ -68,3 +68,6 @@ Options:
 * `typeDefinitionFactory`: See [Type Definition Factory]({{< relref "/tools/type-definition-factory/index.md" >}}).
 * `includeUnusedTypes`: Defaults to `false`. By default, the parser will ignore unused type definitions in the schema. Enable this option to include them regardless.
 * `allowUndeclaredDirectives`: Defaults to `false`. Allows applying directives that aren't declared in the schema, e.g. the Apollo Federation directives imported through `@link`. They're only added as applied directives, with argument types guessed from their values. Directives with enum or input object arguments still have to be declared.
+* `unmappedInputFields`: Defaults to `WARN`. What to do about input type fields that the class of a resolver argument has no property for. When a client sends such a field, Jackson fails to convert the argument, or drops the value if the `ObjectMapper` ignores unknown properties.
+  The classes are checked when the schema is built, with each field's own `ObjectMapper`, and `WARN` logs a warning for each of these fields. `FAIL` fails the build instead, and `IGNORE` skips the check. To leave a field unmapped on purpose, add it to `@JsonIgnoreProperties` on the class.
+  Classes with a custom deserializer, a builder or a delegating creator aren't checked, and neither are arguments bound to a `Map` or a `JsonNode`.
