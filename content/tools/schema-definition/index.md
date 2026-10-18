@@ -28,6 +28,12 @@ SchemaParser.newParser()
 Query { }
 ```
 Multiple sources will be concatenated together in the order given, allowing you to modularize your schema if desired.
+Line numbers in syntax errors count from the start of each file or string, and errors in a file end with its name. To name a schema string too, pass the name as well:
+
+```java
+SchemaParser.newParser()
+    .schemaString(usersSchema, "users.graphqls")
+```
 
 ## Resolvers and Data Classes
 
@@ -104,6 +110,17 @@ When given a `BookResolver` instance, GraphQL Java Tools first attempts to map f
 If there is a matching method on the resolver, the data class instance is passed as the first argument to the resolver function.  This does not apply to root resolvers, since those don't have a data class to resolve for.
 An optional parameter can be defined to inject the `DataFetchingEnvironment`, and must be the last argument.
 
+A resolver also applies to subclasses and implementations of its data class, so a `GraphQLResolver<Base>` resolves fields for a data class `Thing extends Base`.
+A resolver for a generic class, like `GraphQLResolver<Page<?>>`, applies to every `Page<T>`.
+When several resolvers apply, the one for the most specific type is tried first.
+
+In Kotlin, a resolver method can also be an extension function on the data class:
+```kotlin
+class BookResolver(private val authorRepository: AuthorRepository) : GraphQLResolver<Book> {
+    fun Book.author(): Author = authorRepository.findById(authorId)
+}
+```
+
 ### Root Resolvers
 
 Since the Query/Mutation/Subscription objects are root GraphQL objects, they don't have an associated data class.  In those cases, any resolvers implementing `GraphQLQueryResolver`, `GraphQLMutationResolver`, or `GraphQLSubscriptionResolver` will be searched for methods that map to fields in their respective root types.  Root resolver methods can be spread between multiple resolvers, but a simple example is below:
@@ -156,7 +173,7 @@ Last of all, if the data class implements`java.util.Map` then:
 
 *Note:* Methods on `java.lang.Object` are excluded from method matching, for example a field named `class` will require a method named `getFieldClass` defined.
 
-*Note:* If one of the values of a type backed by a `java.util.Map` is non-scalar then this type will need to be added to the `type dictionary` (see below). After adding this type to the dictionary, GraphQL Java Tools will however still be able to find the types used in the fields of this added type.
+*Note:* If one of the values of a type backed by a `java.util.Map` is non-scalar, on its own or in a list, then this type will need to be added to the `type dictionary` (see below). After adding this type to the dictionary, GraphQL Java Tools will however still be able to find the types used in the fields of this added type.
 
 ## Enum Types
 
@@ -187,6 +204,7 @@ class AdditionInput {
 ## Interfaces and Union Types
 
 GraphQL interface/union types are automatically resolved from the schema and the list of provided classes, and require no extra work outside of the schema.
+Members and implementors that no resolver returns need to be in the [type dictionary](#type-dictionary), unless the class of their union or interface is sealed.
 Although not necessary, it's generally a good idea to have java interfaces that correspond to your GraphQL interfaces to keep your code understandable.
 
 ## Scalar Types
@@ -211,6 +229,17 @@ SchemaParser.newParser()
     // ...
     .dictionary(Author.class)
     .dictionary("Book", BookClassWithIncorrectName.class)
+```
+
+Several input types can share a class, e.g. Jackson's `ObjectNode`. Other types need a class each.
+
+If the class of a union or interface is a Kotlin sealed class or interface, or a Java sealed type, its members and implementors don't need to be added. GraphQL Java Tools uses the subclass with the same simple name as the GraphQL type:
+```kotlin
+// union Pet = NormalPet | WeirdPet
+sealed class Pet {
+    data class NormalPet(val name: String) : Pet()
+    data class WeirdPet(val classification: String) : Pet()
+}
 ```
 
 ## Making the graphql-java Schema Instance
