@@ -31,18 +31,14 @@ type Query {
 ```
 
 And the actual implementation is the following:
-```
+```java
 public class UppercaseDirective implements SchemaDirectiveWiring {
   @Override
   public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {
-    GraphQLFieldDefinition field = env.getElement();
-    GraphQLFieldsContainer parentType = env.getFieldsContainer();
-
     // build a data fetcher that transforms the given value to uppercase
-    DataFetcher originalFetcher = env.getCodeRegistry().getDataFetcher(parentType, field);
-    DataFetcher dataFetcher =
+    DataFetcher<?> dataFetcher =
         DataFetcherFactories.wrapDataFetcher(
-            originalFetcher,
+            env.getFieldDataFetcher(),
             ((dataFetchingEnvironment, value) -> {
               if (value instanceof String) {
                 return ((String) value).toUpperCase();
@@ -50,9 +46,8 @@ public class UppercaseDirective implements SchemaDirectiveWiring {
               return value;
             }));
 
-    // now change the field definition to use the new uppercase data fetcher
-    env.getCodeRegistry().dataFetcher(parentType, field, dataFetcher);
-    return field;
+    // now change the field to use the new uppercase data fetcher
+    return env.setFieldDataFetcher(dataFetcher);
   }
 }
 ```
