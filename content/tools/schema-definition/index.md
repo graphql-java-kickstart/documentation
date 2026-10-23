@@ -108,7 +108,8 @@ class BookResolver implements GraphQLResolver<Book> /* This class is a resolver 
 
 When given a `BookResolver` instance, GraphQL Java Tools first attempts to map fields to methods on the resolver before mapping them to fields or methods on the data class.
 If there is a matching method on the resolver, the data class instance is passed as the first argument to the resolver function.  This does not apply to root resolvers, since those don't have a data class to resolve for.
-An optional parameter can be defined to inject the `DataFetchingEnvironment`, and must be the last argument.
+The field's arguments come next, in order.
+After them, a method can take any of `DataFetchingEnvironment`, `GraphQLContext` and the `contextClass` set in the [schema parser options]({{< relref "/tools/schema-parser-options/index.md" >}}), in any order.
 
 A resolver also applies to subclasses and implementations of its data class, so a `GraphQLResolver<Base>` resolves fields for a data class `Thing extends Base`.
 A resolver for a generic class, like `GraphQLResolver<Page<?>>`, applies to every `Page<T>`.
@@ -150,23 +151,31 @@ SchemaParser.newParser()
 
 The field mapping is done by name against public/protected methods and public/protected/private fields, with the following priority:
 
+`*environmentOrContext` stands for any of `DataFetchingEnvironment`, `GraphQLContext` and the `contextClass`, in any order.
+
 First on the resolver or root resolver (note that dataClassInstance doesn't apply for root resolvers):
 
-1. `method <name>(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])`
-2. `method is<Name>(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])`, only if the field returns a `Boolean`
-3. `method get<Name>(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])`
-4. `method getField<Name>(dataClassInstance, *fieldArgs [, DataFetchingEnvironment])`
+1. `method <name>(dataClassInstance, *fieldArgs [, *environmentOrContext])`
+2. `method is<Name>(dataClassInstance, *fieldArgs [, *environmentOrContext])`, only if the field returns a `Boolean`
+3. `method get<Name>(dataClassInstance, *fieldArgs [, *environmentOrContext])`
+4. `method getField<Name>(dataClassInstance, *fieldArgs [, *environmentOrContext])`
 
 Then on the data class:
 
-1. `method <name>(*fieldArgs [, DataFetchingEnvironment])`
-2. `method is<Name>(*fieldArgs [, DataFetchingEnvironment])`, only if the field returns a `Boolean`
-3. `method get<Name>(*fieldArgs [, DataFetchingEnvironment])`
-4. `method getField<Name>(*fieldArgs [, DataFetchingEnvironment])`
+1. `method <name>(*fieldArgs [, *environmentOrContext])`
+2. `method is<Name>(*fieldArgs [, *environmentOrContext])`, only if the field returns a `Boolean`
+3. `method get<Name>(*fieldArgs [, *environmentOrContext])`
+4. `method getField<Name>(*fieldArgs [, *environmentOrContext])`
 5. `field <name>`
 
 Last of all, if the data class implements`java.util.Map` then:
 1. `method get(name)`
+
+If nothing above matches, a resolver method can leave out the data class instance, as long as it ends in at least one environment or context parameter:
+
+1. `method <name>(*fieldArgs, *environmentOrContext)`, and the `is`, `get` and `getField` forms in the same order as above
+
+This is for fields that only need the environment, e.g. a value the parent field put in its `localContext`. It doesn't apply when `allowUnimplementedResolvers` or a missing resolver data fetcher is set, since those already handle a field with no match.
 
 
 <!--*Note:* `java.util.Optional` can be used for nullable field arguments and nullable return values, and the schema parser will verify that it's not used with non-null field arguments and return values.-->

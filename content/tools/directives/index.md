@@ -68,9 +68,12 @@ Arguments the SDL leaves out are filled in with their default from the directive
 
 An enum that's only used by directive definitions doesn't need a Java class. Its values are then passed to the wiring as `String`s. Add the enum to the [type dictionary]({{< relref "/tools/schema-definition/index.md#type-dictionary" >}}) to get the enum constants instead.
 
-## Supported locations
-Support for directives is currently limited to the following locations:
+Wirings run once the whole schema is built, like in graphql-java, so the types they see are the real ones and not `GraphQLTypeReference`s.
 
+## Supported locations
+Wirings run for directives on the following locations:
+
+* `SCALAR`
 * `OBJECT`
 * `FIELD_DEFINITION`
 * `ARGUMENT_DEFINITION`
@@ -81,8 +84,6 @@ Support for directives is currently limited to the following locations:
 * `INPUT_OBJECT`
 * `INPUT_FIELD_DEFINITION`
 
-Meaning directives for the following locations are currently not yet supported:
-
-* `SCALAR`
+A directive applied where its definition doesn't allow it, without a required argument, or more than once without being `repeatable` logs a warning. These will fail the build in 15.0.0.
 
 Directives on `schema` and `extend schema` don't run a wiring, but they're added to the schema's applied directives. Like everywhere else, they have to be declared, unless `allowUndeclaredDirectives` is set in the [schema parser options]({{< relref "/tools/schema-parser-options/index.md" >}}).
