@@ -57,7 +57,16 @@ Options:
     * Guice
     * Spring AOP
     * Weld
-* `introspectionEnabled`: Defaults to `true`. When set to `false` this option will disable schema introspection via `NO_INTROSPECTION_FIELD_VISIBILITY`. See [Field Visibility](https://www.graphql-java.com/documentation/field-visibility).
+* `introspectionEnabled`: Deprecated, and will be removed in 15.0.0. Defaults to `true`. When set to `false`, every field of the introspection types is hidden, so an introspection query fails validation.
+  Turn introspection off with graphql-java instead, for the whole JVM or for one request:
+    ```java
+    Introspection.enabledJvmWide(false);
+
+    var executionInput = ExecutionInput.newExecutionInput()
+        .query(query)
+        .graphQLContext(Map.of(Introspection.INTROSPECTION_DISABLED, true));
+    ```
+  An introspection query then fails with an "introspection disabled" error when it runs.
 * `fieldVisibility`: Provide a graphql field visibility implementation. This option overrides `introspectionEnabled` when used. See [Field Visibility](https://www.graphql-java.com/documentation/field-visibility).
 * `coroutineContext` / `coroutineContextProvider`: Provide a kotlin coroutine context to be used with suspend functions of resolvers.
   A suspend function runs on the calling thread until it first suspends, and continues on this context after that, so wrap blocking calls in `withContext(Dispatchers.IO)`.
