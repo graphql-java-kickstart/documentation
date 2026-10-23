@@ -24,6 +24,8 @@ Options:
     ```
 * `genericWrappers`: Allows defining your own generic classes that should be unwrapped when matching Java types to GraphQL types.  You must supply the class and the index (zero-indexed) of the wrapped generic type.  For example: If you want to unwrap type argument `T` of `Future<T>`, you must pass `Future.class` and `0`.
   Use `GenericWrapper.withTransformer` to also convert the value at runtime. If the transformer returns `null`, the field is `null`.
+  Wrappers and futures nested in lists or in other wrappers are unwrapped too, e.g. `List<Try<Payload>>` or `List<CompletableFuture<Item>>`. If one element fails, the whole field fails.
+  A transformer or nested future that calls a DataLoader after an async step needs graphql-java's DataLoader chaining (`DataLoaderDispatchingContextKeys.setEnableDataLoaderChaining`), otherwise the field never completes.
 
 * `useDefaultGenericWrappers`: Defaults to `true`.  Tells the parser whether or not to add it's own list of well-known generic wrappers, such as `Future` and `CompletableFuture`.
   graphql-java only waits on a `CompletionStage`, so a method declared to return a `Future` has to return one, such as a `CompletableFuture`. Any other future fails the field with an error, unless a generic wrapper transformer converts it.
