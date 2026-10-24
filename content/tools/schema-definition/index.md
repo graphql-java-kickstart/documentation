@@ -230,6 +230,15 @@ SchemaParser.newParser()
     .scalars(myUuidScalar)
 ```
 
+The scalar's definition in the schema, and its `extend scalar` extensions, can add a description and directives:
+```graphql
+"A calendar date"
+scalar Date @specifiedBy(url: "https://tools.ietf.org/html/rfc3339")
+```
+
+A description or `@specifiedBy` URL in the schema replaces the one of the scalar instance. Without one, the scalar keeps its own.
+The scalar gets only the directives that the schema applies, not those of the scalar instance, and their [directive wirings]({{< relref "/tools/directives/index.md" >}}) run `onScalar`.
+
 ## Type Dictionary
 
 Sometimes GraphQL Java Tools can't find classes when it scans your objects, usually because of limitations with interface and union types.  Sometimes your Java classes don't line up perfectly with your GraphQL schema, either. GraphQL Java Tools allows you to provide additional classes manually and "rename" them if desired:
