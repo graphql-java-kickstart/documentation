@@ -30,9 +30,12 @@ Options:
 * `useDefaultGenericWrappers`: Defaults to `true`.  Tells the parser whether or not to add it's own list of well-known generic wrappers, such as `Future` and `CompletableFuture`.
   graphql-java only waits on a `CompletionStage`, so a method declared to return a `Future` has to return one, such as a `CompletableFuture`. Any other future fails the field with an error, unless a generic wrapper transformer converts it.
 * `allowUnimplementedResolvers`: Defaults to `false`.  Allows a schema to be created even if not all GraphQL fields have resolvers.  Intended only for development, it will log a warning to remind you to turn it off for production.  Any unimplemented resolvers will throw errors when queried.
-* `missingResolverDataFetcher`: Allows you to provide custom behavior for missing GraphQL fields.
+* `missingResolverDataFetcherProvider`: Allows you to provide custom behavior for missing GraphQL fields. It gets the field definition and the options, and returns the `DataFetcher` for that field, e.g. `.missingResolverDataFetcherProvider { field, options -> fetcher }`.
 * `inputArgumentOptionalDetectOmission`: Defaults to `false`. By default, the parser will treat omitted or null method input arguments as `Optional.empty` in resolvers. If you prefer, you can disable this behavior.
-* `objectMapperConfigurer` / `objectMapperProvider`: Exposes the Jackson `ObjectMapper` that handles marshalling arguments in method resolvers.  Every method resolver gets its own mapper, and the configurer can configure it differently based on the GraphQL field definition.
+* `objectMapperConfigurer` / `objectMapperProvider`: The Jackson `ObjectMapper` that converts the arguments of method resolvers. Since 15.0.0 it's Jackson 3 (`tools.jackson`).
+  By default all fields share one mapper with the Kotlin module, which fails on unknown properties and converts enums to and from Strings by `name()`.
+  `objectMapperConfigurer` customizes that mapper per field, and can do it differently based on the GraphQL field definition. It gets the mapper's `JsonMapper.Builder`, e.g. `.objectMapperConfigurer { builder, context -> builder.addModule(MyModule()) }`, and a module added there replaces the library's module of the same type.
+  `objectMapperProvider` uses your own mappers as they are, e.g. `.objectMapperProvider(field -> springMapper)` to share a Spring Boot 4 app's `JsonMapper`.
 * `preferGraphQLResolver`: In cases where you have a Resolver class and legacy class that conflict on type arguments, use the Resolver class instead of throwing an error.
   Specifically this situation can occur when you have a graphql schema type `Foo` with a `bars` property and classes:
     ```java
@@ -57,8 +60,17 @@ Options:
     * Guice
     * Spring AOP
     * Weld
-* `introspectionEnabled`: Defaults to `true`. When set to `false` this option will disable schema introspection via `NO_INTROSPECTION_FIELD_VISIBILITY`. See [Field Visibility](https://www.graphql-java.com/documentation/field-visibility).
-* `fieldVisibility`: Provide a graphql field visibility implementation. This option overrides `introspectionEnabled` when used. See [Field Visibility](https://www.graphql-java.com/documentation/field-visibility).
+
+  A resolver that is a JDK dynamic proxy fails the build, since its methods can't be called on the proxy. Use class-based proxies, e.g. `proxyTargetClass = true` in Spring.
+* `fieldVisibility`: Provide a graphql field visibility implementation. See [Field Visibility](https://www.graphql-java.com/documentation/field-visibility).
+  To turn introspection off, use graphql-java's switches, for the whole JVM or for one request:
+    ```java
+    Introspection.enabledJvmWide(false);
+
+    var executionInput = ExecutionInput.newExecutionInput()
+        .query(query)
+        .graphQLContext(Map.of(Introspection.INTROSPECTION_DISABLED, true));
+    ```
 * `coroutineContext` / `coroutineContextProvider`: Provide a kotlin coroutine context to be used with suspend functions of resolvers.
   A suspend function runs on the calling thread until it first suspends, and continues on this context after that, so wrap blocking calls in `withContext(Dispatchers.IO)`.
   To run them in your own `CoroutineScope`, e.g. to cancel them with the request, put it in the execution input's context:
@@ -70,6 +82,6 @@ Options:
 * `typeDefinitionFactory`: See [Type Definition Factory]({{< relref "/tools/type-definition-factory/index.md" >}}).
 * `includeUnusedTypes`: Defaults to `false`. By default, the parser will ignore unused type definitions in the schema. Enable this option to include them regardless.
 * `allowUndeclaredDirectives`: Defaults to `false`. Allows applying directives that aren't declared in the schema, e.g. the Apollo Federation directives imported through `@link`. They're only added as applied directives, with argument types guessed from their values. Directives with enum or input object arguments still have to be declared.
-* `unmappedInputFields`: Defaults to `WARN`. What to do about input type fields that the class of a resolver argument has no property for. When a client sends such a field, Jackson fails to convert the argument, or drops the value if the `ObjectMapper` ignores unknown properties.
-  The classes are checked when the schema is built, with each field's own `ObjectMapper`, and `WARN` logs a warning for each of these fields. `FAIL` fails the build instead, and `IGNORE` skips the check. To leave a field unmapped on purpose, add it to `@JsonIgnoreProperties` on the class.
+* `unmappedInputFields`: Defaults to `WARN`. What to do about input type fields that the class of a resolver argument has no property for. When a client sends such a field, Jackson fails to convert the argument, or drops the value if the `ObjectMapper` ignores unknown properties, like plain Jackson 3 and Spring Boot mappers do.
+  The classes are checked when the schema is built, with each field's `ObjectMapper`, and `WARN` logs a warning for each of these fields. `FAIL` fails the build instead, and `IGNORE` skips the check. To leave a field unmapped on purpose, add it to `@JsonIgnoreProperties` on the class.
   Classes with a custom deserializer, a builder or a delegating creator aren't checked, and neither are arguments bound to a `Map` or a `JsonNode`.
