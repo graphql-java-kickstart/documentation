@@ -30,7 +30,7 @@ Options:
 * `useDefaultGenericWrappers`: Defaults to `true`.  Tells the parser whether or not to add it's own list of well-known generic wrappers, such as `Future` and `CompletableFuture`.
   graphql-java only waits on a `CompletionStage`, so a method declared to return a `Future` has to return one, such as a `CompletableFuture`. Any other future fails the field with an error, unless a generic wrapper transformer converts it.
 * `allowUnimplementedResolvers`: Defaults to `false`.  Allows a schema to be created even if not all GraphQL fields have resolvers.  Intended only for development, it will log a warning to remind you to turn it off for production.  Any unimplemented resolvers will throw errors when queried.
-* `missingResolverDataFetcher`: Allows you to provide custom behavior for missing GraphQL fields.
+* `missingResolverDataFetcherProvider`: Allows you to provide custom behavior for missing GraphQL fields. It gets the field definition and the options, and returns the `DataFetcher` for that field, e.g. `.missingResolverDataFetcherProvider { field, options -> fetcher }`.
 * `inputArgumentOptionalDetectOmission`: Defaults to `false`. By default, the parser will treat omitted or null method input arguments as `Optional.empty` in resolvers. If you prefer, you can disable this behavior.
 * `objectMapperConfigurer` / `objectMapperProvider`: The Jackson `ObjectMapper` that converts the arguments of method resolvers. Since 15.0.0 it's Jackson 3 (`tools.jackson`).
   By default all fields share one mapper with the Kotlin module, which fails on unknown properties and converts enums to and from Strings by `name()`.
@@ -60,8 +60,10 @@ Options:
     * Guice
     * Spring AOP
     * Weld
-* `introspectionEnabled`: Deprecated, and will be removed in 15.0.0. Defaults to `true`. When set to `false`, every field of the introspection types is hidden, so an introspection query fails validation.
-  Turn introspection off with graphql-java instead, for the whole JVM or for one request:
+
+  A resolver that is a JDK dynamic proxy fails the build, since its methods can't be called on the proxy. Use class-based proxies, e.g. `proxyTargetClass = true` in Spring.
+* `fieldVisibility`: Provide a graphql field visibility implementation. See [Field Visibility](https://www.graphql-java.com/documentation/field-visibility).
+  To turn introspection off, use graphql-java's switches, for the whole JVM or for one request:
     ```java
     Introspection.enabledJvmWide(false);
 
@@ -69,8 +71,6 @@ Options:
         .query(query)
         .graphQLContext(Map.of(Introspection.INTROSPECTION_DISABLED, true));
     ```
-  An introspection query then fails with an "introspection disabled" error when it runs.
-* `fieldVisibility`: Provide a graphql field visibility implementation. This option overrides `introspectionEnabled` when used. See [Field Visibility](https://www.graphql-java.com/documentation/field-visibility).
 * `coroutineContext` / `coroutineContextProvider`: Provide a kotlin coroutine context to be used with suspend functions of resolvers.
   A suspend function runs on the calling thread until it first suspends, and continues on this context after that, so wrap blocking calls in `withContext(Dispatchers.IO)`.
   To run them in your own `CoroutineScope`, e.g. to cancel them with the request, put it in the execution input's context:
