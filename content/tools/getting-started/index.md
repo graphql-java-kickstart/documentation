@@ -20,7 +20,7 @@ A working [Kotlin example](https://github.com/graphql-java-kickstart/graphql-jav
 
 To add `graphql-java-tools` to your project and get started quickly, do the following.
 
-Version 15 needs Java 17, graphql-java 26 and Jackson 3. graphql-spring-boot-starter doesn't support it yet, so stay on 14.5.0 with it.
+Version 15 needs Java 17, graphql-java 26 and Jackson 3. graphql-spring-boot-starter is archived and doesn't work with it, so stay on 14.5.0 with the starter.
 
 ### Build with Gradle
 
