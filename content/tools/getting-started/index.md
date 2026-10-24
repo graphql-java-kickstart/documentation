@@ -52,6 +52,8 @@ Add the `graphql-java-tools` dependency:
 </dependency>
 ```
 
+The [release notes](https://github.com/graphql-java-kickstart/graphql-java-tools/releases) list what changed in each version, including behaviour changes and breaking changes.
+
 ## Using the latest development build
 
 Snapshot versions of the current `master` branch are available on the Maven Central snapshot repository. Check the next snapshot version on
