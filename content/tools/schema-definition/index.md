@@ -109,7 +109,7 @@ class BookResolver implements GraphQLResolver<Book> /* This class is a resolver 
 When given a `BookResolver` instance, GraphQL Java Tools first attempts to map fields to methods on the resolver before mapping them to fields or methods on the data class.
 If there is a matching method on the resolver, the data class instance is passed as the first argument to the resolver function.  This does not apply to root resolvers, since those don't have a data class to resolve for.
 The field's arguments come next, in order.
-After them, a method can take any of `DataFetchingEnvironment`, `GraphQLContext` and the `contextClass` set in the [schema parser options]({{< relref "/tools/schema-parser-options/index.md" >}}), in any order.
+After them, a method can take any of `DataFetchingEnvironment`, `GraphQLContext` and the `contextClass` set in the [schema parser options]({{< relref "/tools/schema-parser-options/index.md" >}}), in any order. A method that takes one of these in an argument's place fails the build.
 
 A resolver also applies to subclasses and implementations of its data class, so a `GraphQLResolver<Base>` resolves fields for a data class `Thing extends Base`.
 A resolver for a generic class, like `GraphQLResolver<Page<?>>`, applies to every `Page<T>`.
