@@ -24,7 +24,7 @@ Options:
     ```
 * `genericWrappers`: Allows defining your own generic classes that should be unwrapped when matching Java types to GraphQL types.  You must supply the class and the index (zero-indexed) of the wrapped generic type.  For example: If you want to unwrap type argument `T` of `Future<T>`, you must pass `Future.class` and `0`.
   Use `GenericWrapper.withTransformer` to also convert the value at runtime. If the transformer returns `null`, the field is `null`.
-  Since 15.0.0, if the transformer returns a future of the wrapper's content, such as Reactor's `Mono::toFuture`, register it with `GenericWrapper.withCompletionStageTransformer(Mono.class, 0, Mono::toFuture)` instead. A future declared inside the wrapper, like `Mono<CompletableFuture<Item>>`, is then waited on too. With `withTransformer`, graphql-java gets that inner future as the value.
+  If the transformer returns a future of the wrapper's content, such as Reactor's `Mono::toFuture`, register it with `GenericWrapper.withCompletionStageTransformer(Mono.class, 0, Mono::toFuture)` instead. A future declared inside the wrapper, like `Mono<CompletableFuture<Item>>`, is then waited on too. With `withTransformer`, graphql-java gets that inner future as the value.
   Wrappers and futures nested in lists or in other wrappers are unwrapped too, e.g. `List<Try<Payload>>` or `List<CompletableFuture<Item>>`. If one element fails, the whole field fails.
   A transformer or nested future that calls a DataLoader after an async step needs graphql-java's DataLoader chaining (`DataLoaderDispatchingContextKeys.setEnableDataLoaderChaining`), otherwise the field never completes.
 
@@ -33,7 +33,7 @@ Options:
 * `allowUnimplementedResolvers`: Defaults to `false`.  Allows a schema to be created even if not all GraphQL fields have resolvers.  Intended only for development, it will log a warning to remind you to turn it off for production.  Any unimplemented resolvers will throw errors when queried.
 * `missingResolverDataFetcherProvider`: Allows you to provide custom behavior for missing GraphQL fields. It gets the field definition and the options, and returns the `DataFetcher` for that field, e.g. `.missingResolverDataFetcherProvider { field, options -> fetcher }`.
 * `inputArgumentOptionalDetectOmission`: Defaults to `false`. By default, the parser will treat omitted or null method input arguments as `Optional.empty` in resolvers. If you prefer, you can disable this behavior.
-* `objectMapperConfigurer` / `objectMapperProvider`: The Jackson `ObjectMapper` that converts the arguments of method resolvers. Since 15.0.0 it's Jackson 3 (`tools.jackson`).
+* `objectMapperConfigurer` / `objectMapperProvider`: The Jackson `ObjectMapper` that converts the arguments of method resolvers. It's a Jackson 3 mapper (`tools.jackson`).
   By default all fields share one mapper with the Kotlin module, which fails on unknown properties and converts enums to and from Strings by `name()`.
   `objectMapperConfigurer` customizes that mapper per field, and can do it differently based on the GraphQL field definition. It gets the mapper's `JsonMapper.Builder`, e.g. `.objectMapperConfigurer { builder, context -> builder.addModule(MyModule()) }`, and a module added there replaces the library's module of the same type.
   `objectMapperProvider` uses your own mappers as they are, e.g. `.objectMapperProvider(field -> springMapper)` to share a Spring Boot 4 app's `JsonMapper`.
