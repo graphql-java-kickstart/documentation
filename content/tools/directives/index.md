@@ -84,6 +84,6 @@ Wirings run for directives on the following locations:
 * `INPUT_OBJECT`
 * `INPUT_FIELD_DEFINITION`
 
-A directive applied where its definition doesn't allow it, without a required argument, or more than once without being `repeatable` logs a warning. These will fail the build in 15.0.0.
+A directive applied where its definition doesn't allow it, without a required argument, or more than once without being `repeatable` fails the build with a `SchemaError` that lists each of them with its line.
 
 Directives on `schema` and `extend schema` don't run a wiring, but they're added to the schema's applied directives. Like everywhere else, they have to be declared, unless `allowUndeclaredDirectives` is set in the [schema parser options]({{< relref "/tools/schema-parser-options/index.md" >}}).
